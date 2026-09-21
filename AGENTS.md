@@ -28,16 +28,35 @@
 ~/.bashrc  ~/.ssh/  ~/.cache/
 ```
 
-### R2 — conda 环境的唯一例外
+### R2 — conda 环境的例外（2026-09-21 修订）
 
-激活项目环境需要引用环境路径，这是 R1 的**唯一**例外，且**只读**：
+R1 的唯一例外是 conda 环境路径。**只读环境：**
 
 ```bash
 source /data/raw/miniconda3/etc/profile.d/conda.sh
-conda activate /home/chenliang/.conda/envs/huzj_project2camT2V
+conda activate /home/chenliang/.conda/envs/huzj_project2camT2V    # CamI2V/DynamiCrafter，只读
 ```
 
-禁止在该环境目录内安装、卸载、修改任何包。若确需新依赖，先报告，由人类决定。
+**2026-09-21 人类批准新建独立环境用于 VACE，该路径允许创建与写入：**
+
+```text
+/home/chenliang/.conda/envs/huzj_camI2V_VACE
+```
+
+规则：
+
+```text
+✅ 允许创建并写入 /home/chenliang/.conda/envs/huzj_camI2V_VACE
+✅ 允许在该环境内 pip / conda 安装 VACE 推理所需依赖
+❌ 禁止改动 huzj_project2camT2V（CamI2V 环境）及任何其它已有环境
+❌ 禁止改动 /data/raw/miniconda3（base）
+❌ 禁止改动机器上其他用户的任何环境
+⚠ 安装时缓存必须重定向到 project1_camI2V 内，避免写 ~/.cache 与 base 的 pkgs 目录：
+      export PIP_CACHE_DIR=/data/raw/huzijian/project1_camI2V/tmp_local/pip_cache
+      export CONDA_PKGS_DIRS=/data/raw/huzijian/project1_camI2V/tmp_local/conda_pkgs
+```
+
+除上述两个环境外，R1 的边界不因本修订而放宽。
 
 ### R3 — 所有指令必须使用绝对路径
 
@@ -149,23 +168,59 @@ GPU      4 × NVIDIA A100 80GB PCIe
 
 ```text
 /data/raw/huzijian/project1_camI2V/
-├── code/CamI2V/                   官方代码，commit c5d7b2fc，git status 干净
-│   └── codex_smoke_infer.py       本项目新增文件（唯一未跟踪项，上游零修改）
+├── code/CamI2V/                   官方代码，commit c5d7b2fc（已完成的部署记录）
+│   └── codex_smoke_infer.py       本项目新增（上游零修改）
+├── code/Wan2.1/                   ★ 当前主线代码，commit 9737cba9（2026-03-05）
 ├── model/
 │   ├── baseline_dynamicrafter_256x256/model.ckpt        10,437,545,635 B
 │   ├── cami2v_256x256_50k/256_cami2v.pt                  5,742,264,858 B
+│   ├── Wan2.1-VACE-1.3B/          ★ 下载中，17.74 GB，见 logs/vace_download.log
 │   └── SHA256SUMS.txt
-├── output/                        4 个 smoke mp4（2/25 步 × CamI2V/baseline）
-├── logs/                          smoke_latest.log / smoke25_latest.log
-├── data/                          简单平动透视关系.mp4 + camera.csv
-│                                  非对称建筑平动.mp4 + camera.csv
-│                                  （缺 转向平动，本地有）
-├── experiment/  log/              空
-└── tmp_local/                     （本项目中间产物唯一允许位置，需自建）
+├── output/                        4 个 CamI2V smoke mp4
+├── logs/                          smoke_*.log / vace_download.log / vace_env_clone.log
+├── data/                          两段 MC 素材 + camera.csv
+├── tmp_local/                     ★ 唯一允许的中间产物目录，内有 vace_downloader.py
+└── experiment/  log/              空
 
-conda 环境：huzj_project2camT2V
-tmux 会话：huzj_cami2v_20260919（5 窗口，属本项目，但仍应新建会话跑新作业）
-注意：该机上还有大量其他项目的 tmux 会话，一律不得触碰（R4）
+conda 环境
+  /home/chenliang/.conda/envs/huzj_project2camT2V   只读，CamI2V/DynamiCrafter
+  /home/chenliang/.conda/envs/huzj_camI2V_VACE      ★ 可写，VACE（2026-09-21 新建）
+
+tmux 会话（本项目）
+  huzj_cami2v_20260919     5 窗口，CamI2V 时期
+  huzj_vace_dl_20260921    模型下载
+  huzj_vace_env_20260921   环境克隆
+注意：该机上还有 200+ 个其他项目的 tmux 会话，一律不得触碰（R4）
+```
+
+### 服务器网络与工具实测（2026-09-21，踩过的坑）
+
+```text
+huggingface.co        ❌ DNS 被污染到 Facebook 段（31.13.81.4 / 2a03:2880:…:face:b00c）
+hf-mirror.com         ⚠ 可达(200)，小文件能下；但 LFS 文件 302 到 xethub 后
+                        huggingface_hub 元数据校验失败（FileMetadataError）——不可用
+ModelScope            ✅ 可达，官方同源仓库，Range 支持，实测 10.9 MB/s
+github.com            ✅ 可达（curl 200，git clone 成功）
+git-lfs               ❌ 不存在，且 git 为 1.8.3.1（2013 年版，不支持 -C 等选项）
+nvcc                  ❌ 不存在 —— 无法从源码编译 flash-attn
+项目环境自带 hf CLI    ✅ huggingface_hub 0.36.2（但受上面 LFS 问题所限）
+
+★ 模型下载结论：走 ModelScope + aria2c，不要走 HF/hf-mirror
+★ HF_HOME 必须重定向到 project1_camI2V 内，否则写到 ~/.cache（R1 边界外）
+```
+
+### VACE 依赖实测（新环境 huzj_camI2V_VACE）
+
+```text
+✅ torch 2.4.0+cu121 / torchvision 0.19.0 / numpy 1.26.4（满足 requirements 的 <2）
+✅ diffusers 0.30.3 / transformers 4.44.2 / tokenizers 0.19.1 / accelerate 0.34.2
+✅ imageio / imageio_ffmpeg / ftfy 6.3.1
+✅ easydict 1.13（新装，缺它会导致 import wan 直接失败）
+❌ flash_attn —— 但 wan/modules/attention.py 有干净的 SDPA 回落路径，
+                实测四个模块 import 全部 OK，不构成阻塞
+❌ dashscope（仅提示词扩写用）/ gradio（仅 Web UI 用）—— 均不需要
+
+★ 已验证：wan.modules.model / vace_model / vae / t5 四个模块全部 import 成功
 ```
 
 ### 数据状态（2026-09-21 实测，容易踩坑，务必先读）
@@ -239,17 +294,22 @@ V² 模块本体（不变）       V2RefAttn —— 稀疏参考注意力残差�
 
 **极线是可选加速器，不是方法核心。** 投票 = 多个候选对的一致性共识 + 拒绝；**不是**深度估计。
 
-### 四臂实验（第一条实验路线）
+### 实验路线（[版本1.6] 修订，取代 [版本1.5] 的 CamI2V 四臂）
 
 ```text
-(a) 原版 CamI2V                        ← 零初始化 ⇒ 其余三臂初始点等价于 (a)
-(b) + V²，极线+投票    (c) + V²，纯投票 ★    (d) + V²，oracle
-(c) vs (a) 决定可迁移版本能否成立；(b) vs (c) 决定几何先验值多少
+★ 主任务 = 首尾帧过渡 FLF2V   ★ 最终主干 = VACE (Wan2.1-VACE-1.3B)
+  CamI2V 不再是风洞，其工作降级为"已完成的部署记录"
+
+第一步（当前）：P0 探针 —— 零训练、纯仪表
+  验证 ① c 的 shape 与首/尾帧 token 索引  ② c 逐层干净度  ③ 零初始化分支接入后输出逐位不变
+  通过才进入候选生成与投票实现
+
+后续（P0 后定）：在 VACE 上重设计四臂对比
 ```
 
-主指标只认**生成质量**：FVD / PSNR / SSIM / LPIPS + RotErr / TransErr / CamMC。
-辅助指标（候选召回等）标 `provisional`，**不作结论**。
-限制：CamI2V 训于 RealEstate10K，零样本跑 MC 是分布外，绝对值不可比论文，四臂相对比较有效。
+**VACE 挂载点（代码级已核实）**：DiT block 内与文本 cross-attn 并列的第三条零初始化残差；参考 K/V 取自条件支路 `forward_vace` 的 `c`（干净、同网格、逐层可得）。另有 `BaseWanAttentionBlock` 的 `hints`/`context_scale` 现成注入点。
+
+**VACE 无相机位姿接口** → 极线不可用 → 只能走纯运动投票，方法内核完整保留。
 
 上游最接近工作见 `log/[版本1.16]`（CorrAdapter / CAMEO / Track4Gen / FLATTEN / TokenFlow / CamI2V）。
 

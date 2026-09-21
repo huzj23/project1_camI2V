@@ -32,12 +32,29 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 KEY_FILE = os.path.normpath(os.path.join(HERE, os.pardir, "log", "key.txt"))
 
 # ---- R1 / R2：允许出现的绝对路径前缀 ----------------------------------------
+# 与 AGENTS.md 的 R1/R2 严格对应。新增前缀必须先改 AGENTS.md，再改这里。
 ALLOWED_PREFIXES = (
+    # R1：服务器唯一工作目录
     "/data/raw/huzijian/project1_camI2V",
+    # R2：base 的 conda.sh（只读）
     "/data/raw/miniconda3/etc/profile.d/conda.sh",
+    # R2：CamI2V / DynamiCrafter 环境（只读）
     "/home/chenliang/.conda/envs/huzj_project2camT2V",
+    # R2：2026-09-21 人类批准新建的 VACE 环境（可写）
+    "/home/chenliang/.conda/envs/huzj_camI2V_VACE",
+    # 重定向目标
     "/dev/null",
 )
+
+# ---- 已知盲区（务必知情）-----------------------------------------------------
+# 本守卫只检查命令文本中**字面出现**的绝对路径。以下情况它看不出来：
+#   1. shell 变量展开：`P=/etc; cat $P/passwd` —— 变量赋值那一行会作为字面量
+#      /etc 被检查并拦下，所以只要**所有赋值都写成字面绝对路径**就是安全的；
+#      但通过命令替换 $(...) 或预置环境变量间接构造的路径无法覆盖。
+#   2. 被调用脚本自身的运行时行为（如 python 脚本内部再去读别的路径）。
+# 因此约定：脚本内的路径赋值必须写成字面绝对路径，且不得用命令替换构造路径。
+# 违反此约定即视为绕过守卫，等同于违反 R1。
+
 
 # ---- 硬拒绝模式 --------------------------------------------------------------
 DENY = [
@@ -52,14 +69,24 @@ DENY = [
     (r"\b(shutdown|reboot|halt|poweroff|init\s+0)\b", "R3: 禁止关机重启"),
     (r"\bkill(all)?\b|\bpkill\b", "R4: 禁止杀进程"),
     (r"\btmux\s+kill-(server|session)\b", "R4: 禁止终止 tmux 会话"),
-    (r"\b(pip|pip3)\s+(install|uninstall)\b", "R2: 禁止改动 conda 环境"),
-    (r"\bconda\s+(install|remove|uninstall|update|upgrade|create|env\s+remove)\b", "R2: 禁止改动 conda 环境"),
     (r"\bapt(-get)?\b|\byum\b|\bdnf\b", "R3: 禁止系统包管理"),
     (r"\bcurl\b[^|]*\|\s*(ba|z)?sh", "R3: 禁止管道执行远程脚本"),
     (r"\bwget\b[^|]*\|\s*(ba|z)?sh", "R3: 禁止管道执行远程脚本"),
     (r">\s*/(etc|usr|var|opt|root|home|boot|sys|proc)/", "R1: 禁止写入允许目录之外的系统路径"),
     (r"\bexport\s+HOME=|\bcd\s+~\b|\bcd\s+\$HOME\b", "R1: 禁止操作家目录"),
     (r"\bhistory\s+-c\b", "R4: 禁止清除审计痕迹"),
+]
+
+# ---- 环境改动类命令：条件放行（R2 2026-09-21 修订）---------------------------
+# 人类已批准新建 /home/chenliang/.conda/envs/huzj_camI2V_VACE。
+# 因此环境改动命令不再是"一律禁止"，而是"只有显式指向 VACE 环境才放行"。
+VACE_ENV = "/home/chenliang/.conda/envs/huzj_camI2V_VACE"
+
+ENV_MUTATING = [
+    (r"\bconda\s+(create|install|remove|uninstall|update|upgrade|env\s+remove)\b",
+     "conda 环境改动"),
+    (r"\b(pip|pip3)\s+(install|uninstall)\b", "pip 安装/卸载"),
+    (r"\bpython[0-9.]*\s+-m\s+pip\s+(install|uninstall)\b", "pip 安装/卸载"),
 ]
 
 # ---- 路径扫描 ----------------------------------------------------------------
@@ -90,6 +117,17 @@ def check_command(cmd):
     for pattern, reason in DENY:
         if re.search(pattern, cmd):
             blockers.append("命中拒绝规则 [%s]：%s" % (reason, pattern))
+
+    # 环境改动命令：只有显式指向 VACE 环境才放行（R2 2026-09-21 修订）
+    for pattern, reason in ENV_MUTATING:
+        if re.search(pattern, cmd):
+            if VACE_ENV in cmd:
+                warnings.append("R2 条件放行：%s，目标为已授权的 VACE 环境" % reason)
+            else:
+                blockers.append(
+                    "R2：%s 仅在显式指向 %s 时允许；本命令未包含该路径，"
+                    "因此会被写入其它环境（如 huzj_project2camT2V 或 base）"
+                    % (reason, VACE_ENV))
 
     for raw in ABS_PATH_RE.findall(cmd):
         path = raw.rstrip("/") or "/"
