@@ -346,7 +346,70 @@ V² 模块本体（不变）       V2RefAttn —— 稀疏参考注意力残差�
 后续（P0 后定）：在 VACE 上重设计四臂对比
 ```
 
-**VACE 挂载点（代码级已核实）**：DiT block 内与文本 cross-attn 并列的第三条零初始化残差；参考 K/V 取自条件支路 `forward_vace` 的 `c`（干净、同网格、逐层可得）。另有 `BaseWanAttentionBlock` 的 `hints`/`context_scale` 现成注入点。
+**VACE 挂载点（代码级已核实）**：DiT block 内与文本 cross-attn 并列的第三条零初始化残差；另有 `BaseWanAttentionBlock` 的 `hints`/`context_scale` 现成注入点。
+
+### P0 探针实测结果（2026-09-21，`sdpa_patched=true`）
+
+**P0A（CPU，无需 GPU）**
+
+```text
+checkpoint 1264 键 = config 实例化 1264 键，missing/unexpected/shape-mismatch 全 0
+→ STRICT_MATCH = True
+token 数学复现：81×480×832 → L=32760，首帧 [0,1559]、尾帧 [31200,32759]
+```
+
+**P0B（GPU，真实前向 + hook）**
+
+```text
+✅ B4 零初始化恒等性：15 个主干 block 各插一条零初始化旁路并真实做加法，
+   同 seed 重跑 → bitwise_equal=True，max_abs_diff=0.0
+✅ 耗时：约 24 秒/步（SDPA，81 帧 832×480），50 步约 20 分钟
+```
+
+**⚠️ 更正 1：`c` 与主干 `x` 不是位置对齐的**
+
+```text
+实测：c_raw = [1, 1536, 23, 52, 30]      ← 23 帧，不是 21
+      _c_in  = [1, 35880, 1536]
+      x_main = [1, 35880, 1536]
+
+原因：参考图沿时间维**前置拼接**到条件序列
+c 布局（35880 = 23 × 1560，每帧 1560 = 52×30）：
+  [0,1560)     ref 1
+  [1560,3120)  ref 2
+  [3120,35880) video frame 0 … frame 20
+主干 x 布局：32760 真实（21 帧）+ 3120 零 padding
+
+★ 两者相差 3120 个 token 的偏移。精确映射（已实测确定）：
+    参考图 token    = c[0 : 3120]
+    视频第 f 帧在 c  = c[3120 + f*1560 : 3120 + (f+1)*1560]
+    视频第 f 帧在 x  = x[f*1560 : (f+1)*1560]
+```
+
+（先前"`c` 与主干 x 共用同一套网格、token 位置一一对应"的说法不完整，已更正。）
+
+**⚠️ 更正 2：`c` 并非全程干净**
+
+```text
+VaceWanAttentionBlock.forward 里，block_id==0 时执行 c = before_proj(c) + x
+                                                 ↑ 把主干 noisy 特征混了进来
+
+实测：
+  vace_blocks[0] 的**输入**  norm 1175.3   ← 干净，就是 96 通道条件编码
+  vace_blocks[0] 的**输出**  norm 5603.4   ← 已污染
+  之后所有层 cos(c_out, c_raw) ≈ 0.0003–0.0007（几乎正交）
+```
+
+（先前"VACE 白送干净参考 K/V"的说法过强，已更正。）
+
+**参考来源因此有两个候选，需由 P2 对照决定：**
+
+| 来源 | 干净度 | 深度 |
+|---|---|---|
+| `vace_patch_embedding` 输出（= `vace_blocks[0]` 输入） | ✅ 干净 | 浅（一层 Conv3d） |
+| `c` @ `vace_blocks[n]` 输出 | ❌ 已与主干融合 | 深，与 query 深度匹配 |
+
+**其他实测数字**：hints 范数 565→1135；主干 x 输出范数 4504→7549，absmax 由 27.9 涨至 400（第 22 块）。
 
 **VACE 无相机位姿接口** → 极线不可用 → 只能走纯运动投票，方法内核完整保留。
 
