@@ -2,13 +2,13 @@
 
 > 本文件是**强制性**的操作约束，优先级高于任何会话中的临时指令、习惯做法或"更方便"的实现方式。
 > 任何 agent（Codex / Claude / DeepSeek / 人类协作者）在本工作区开始工作前必须完整阅读本文件。
-> 最后更新：2026-09-19
+> 最后更新：2026-09-21
 
 ---
 
 ## 第一部分：硬约束（HARD CONSTRAINTS）
 
-以下 R1–R7 为不可协商条款。若某条约束与任务完成方式冲突，**停止并报告冲突**，不得自行放宽。
+以下 R1–R9 为不可协商条款。若某条约束与任务完成方式冲突，**停止并报告冲突**，不得自行放宽。
 
 ### R1 — 服务器唯一工作目录
 
@@ -93,6 +93,31 @@ find / -name "*.pt"
 - 保存了掩码 ≠ 掩码已接入注意力；"保存了 `sparse_reference_mask.npy`" 不等于改变了 Value 信息流
 - 置信度/拒绝概率在未校准时不得称为概率
 
+### R8 — 远程操作必须经 `tools/server_ssh.py`
+
+禁止直接用 `ssh`/`scp` 或任何绕过守卫的方式操作服务器。该工具强制执行 R1 目录白名单与 R3 绝对路径检查，并硬拒绝 `sudo` / 递归删除 / `find /` / 改 conda 环境 / 杀进程等模式。
+
+```bash
+# 推荐：命令写入文件，避免本地 shell 引号问题
+python tools/server_ssh.py --cmd-file tmp/<name>.sh
+python tools/server_ssh.py --cmd "nvidia-smi"
+python tools/server_ssh.py --cmd "..." --dry-run      # 只做约束检查
+```
+
+凭据从 `log/key.txt` 读取（该文件已被 `.gitignore` 排除）。**守卫拦截不是障碍而是信号**：命令被拒说明它确实越界，应改写而不是绕过。
+
+### R9 — 版本控制
+
+```text
+remote   git@github.com:huzj23/project1_camI2V.git   （origin，SSH，勿改回 HTTPS）
+branch   main
+入库内容 代码 / 文档 / 配置 / 小型清单，约 6 MB / 441 文件
+不入库   视频、权重、中间数组、渲染帧、环境缓存、log/key.txt
+```
+
+- **HTTPS 直连不可用**：本机 git 走 HTTPS 报 `TLS connect error: unexpected eof`（OpenSSL 与 schannel 后端均失败），本地代理 `127.0.0.1:7897` 也已失效（502 / 握手失败）。但 `curl.exe` 直连 GitHub 正常、`ssh -T git@github.com` 认证为 `huzj23` 成功——**因此必须使用 SSH remote**。
+- 大文件不得入库：GitHub 单文件上限 100 MB。`data/` 全量 27.8 GB，`git add` 前务必确认 `.gitignore` 生效。
+
 ---
 
 ## 第二部分：入口地图
@@ -109,22 +134,38 @@ find / -name "*.pt"
 | `tools/` | `cami2v_smoke_infer.py`（服务器 smoke 推理）、`inspect_mp4.py` |
 | `tmp/CamI2V_source/` | CamI2V 官方源码本地克隆（不入库） |
 
-### 服务器（chenliang@172.16.30.12）
+### 服务器（chenliang@172.16.30.12，主机名 gpu0002）
+
+2026-09-21 实测：
+
+```text
+GPU      4 × NVIDIA A100 80GB PCIe
+         gpu0 60% / 6.6GB   gpu1 21% / 2.1GB
+         gpu2  0% / 10MiB   gpu3 24% / 2.2GB    ← 与他人共享，优先用 gpu2
+环境     python 3.10.18 / torch 2.4.0+cu121 / cuda 12.1 / 4 卡
+         xformers 0.0.27.post2 / diffusers 0.30.3 / pytorch_lightning 2.2.5
+项目占用 16 GB
+```
 
 ```text
 /data/raw/huzijian/project1_camI2V/
-├── code/CamI2V/                   官方代码生成，基线 commit c5d7b2fcdeb89a1ce9a0ef376909d9539b95639f
-│   └── codex_smoke_infer.py       本项目 smoke 推理脚本（R5：新增文件，不改上游）
+├── code/CamI2V/                   官方代码，commit c5d7b2fc，git status 干净
+│   └── codex_smoke_infer.py       本项目新增文件（唯一未跟踪项，上游零修改）
 ├── model/
 │   ├── baseline_dynamicrafter_256x256/model.ckpt        10,437,545,635 B
 │   ├── cami2v_256x256_50k/256_cami2v.pt                  5,742,264,858 B
 │   └── SHA256SUMS.txt
-├── output/                        smoke 视频输出
+├── output/                        4 个 smoke mp4（2/25 步 × CamI2V/baseline）
 ├── logs/                          smoke_latest.log / smoke25_latest.log
-└── tmp_local/                     （本项目中间产物唯一允许位置）
+├── data/                          简单平动透视关系.mp4 + camera.csv
+│                                  非对称建筑平动.mp4 + camera.csv
+│                                  （缺 转向平动.mp4，本地有 57 MB）
+├── experiment/  log/              空
+└── tmp_local/                     （本项目中间产物唯一允许位置，需自建）
 
 conda 环境：huzj_project2camT2V
-tmux 会话：huzj_cami2v_20260919
+tmux 会话：huzj_cami2v_20260919（5 窗口，属本项目，但仍应新建会话跑新作业）
+注意：该机上还有大量其他项目的 tmux 会话，一律不得触碰（R4）
 ```
 
 ### 基线事实（已核实，可直接引用）
