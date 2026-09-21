@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "session_id": "20260914-201742-flashback_export",
+  "mode": "flashback_export",
+  "csv": "非对称建筑平动.camera.csv",
+  "coordinate_system": {
+    "world": "Minecraft: +X east, +Y up, +Z south",
+    "camera_to_world_columns": "right, up, back, position",
+    "view_direction": "-back",
+    "rotation_authority": "quaternion and basis vectors; yaw/pitch are convenience fields"
+  },
+  "flashback_export": {
+    "name": "",
+    "output": "C:\\Users\\12447\\Desktop\\plan\\ShortTerm_WeeksCounted\\project4_CAMI2V\\data\\非对称建筑平动.mp4",
+    "fps": 60.0,
+    "width": 1280,
+    "height": 720,
+    "start_tick": 0,
+    "end_tick": 294,
+    "projection": "PERSPECTIVE",
+    "depth_map": false,
+    "ssaa": false
+  },
+  "video": "非对称建筑平动.mp4",
+  "alignment": {
+    "status": "verified",
+    "method": "already_one_row_per_encoded_frame",
+    "raw_csv": "D:\\Mc\\.minecraft\\versions\\26.1.2-V2DiT-Data\\v2dit_capture\\trajectory\\20260914-201742-flashback_export.csv",
+    "raw_rows": 882,
+    "dropped_leading_rows": 0,
+    "video_frame_count": 882,
+    "aligned_csv_rows": 882,
+    "video_duration_seconds": 14.7,
+    "first_aligned_raw_frame_index": 0,
+    "note": "Logger output already has one camera row per encoded video frame; no rows were removed."
+  }
+}

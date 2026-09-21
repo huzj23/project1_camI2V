@@ -1,0 +1,355 @@
+{
+  "schema_version": "demo0-1.1-experiment-report",
+  "run_id": "demo0_v11_d0real",
+  "scope": "D0-Real only; real short-video frames with explicit image-grid tokens",
+  "vace_checkpoint_used": false,
+  "scientific_decision": "do_not_integrate_into_vace_yet",
+  "reason": "Candidate retrieval and vote re-ranking are promising on the small manual set, but P5 fails the pre-registered P3 superiority gate and still false-accepts occlusion-boundary tokens.",
+  "manual_metrics": {
+    "schema_version": "demo0-1.1-manual-metrics",
+    "scope": "D0-Real, FL reference bank, P0 versus P5 on 24 visually audited queries",
+    "warning": "Small diagnostic set; repeated textures are judged at 16 px token resolution and are not statistical ground truth.",
+    "coverage_gaps": [
+      "confirmed_neither_endpoint_visible"
+    ],
+    "overall": {
+      "query_count": 24,
+      "matchable_query_count": 19,
+      "should_reject_count": 5,
+      "P0_raw": {
+        "MRR": 0.8526315789473684,
+        "Hit@1": 0.7894736842105263,
+        "Hit@8": 1.0,
+        "Hit@16": 1.0
+      },
+      "P5_verified": {
+        "MRR": 0.9122807017543859,
+        "Hit@1": 0.8421052631578947,
+        "Hit@8": 1.0,
+        "mean_correct_candidate_weight": 0.7194259794134843,
+        "reject_accuracy": 0.9166666666666666,
+        "false_accept_token_ids": [
+          541,
+          492
+        ],
+        "false_reject_token_ids": []
+      }
+    },
+    "by_window": {
+      "asymmetric_outbound_0060_0120": {
+        "query_count": 8,
+        "matchable_query_count": 7,
+        "should_reject_count": 1,
+        "P0_raw": {
+          "MRR": 0.9285714285714286,
+          "Hit@1": 0.8571428571428571,
+          "Hit@8": 1.0,
+          "Hit@16": 1.0
+        },
+        "P5_verified": {
+          "MRR": 0.9285714285714286,
+          "Hit@1": 0.8571428571428571,
+          "Hit@8": 1.0,
+          "mean_correct_candidate_weight": 0.7299150739397321,
+          "reject_accuracy": 1.0,
+          "false_accept_token_ids": [],
+          "false_reject_token_ids": []
+        }
+      },
+      "simple_multidepth_0180_0300": {
+        "query_count": 8,
+        "matchable_query_count": 7,
+        "should_reject_count": 1,
+        "P0_raw": {
+          "MRR": 0.8857142857142858,
+          "Hit@1": 0.8571428571428571,
+          "Hit@8": 1.0,
+          "Hit@16": 1.0
+        },
+        "P5_verified": {
+          "MRR": 0.9047619047619048,
+          "Hit@1": 0.8571428571428571,
+          "Hit@8": 1.0,
+          "mean_correct_candidate_weight": 0.7459383692060199,
+          "reject_accuracy": 1.0,
+          "false_accept_token_ids": [],
+          "false_reject_token_ids": []
+        }
+      },
+      "simple_occlusion_0360_0480": {
+        "query_count": 8,
+        "matchable_query_count": 5,
+        "should_reject_count": 3,
+        "P0_raw": {
+          "MRR": 0.7,
+          "Hit@1": 0.6,
+          "Hit@8": 1.0,
+          "Hit@16": 1.0
+        },
+        "P5_verified": {
+          "MRR": 0.9,
+          "Hit@1": 0.8,
+          "Hit@8": 1.0,
+          "mean_correct_candidate_weight": 0.6676239013671875,
+          "reject_accuracy": 0.75,
+          "false_accept_token_ids": [
+            541,
+            492
+          ],
+          "false_reject_token_ids": []
+        }
+      }
+    }
+  },
+  "dense_auxiliary_proxy": {
+    "warning": "Dense metrics use disclosed adjacent-flow composition only as an auxiliary proxy; manual review showed that its visibility labels are often wrong.",
+    "windows": {
+      "asymmetric_outbound_0060_0120": {
+        "F": {
+          "P0": {
+            "MRR": 0.6859,
+            "Hit@8": 0.8107,
+            "Hit@16": 0.8595
+          },
+          "P3": {
+            "MRR": 0.601,
+            "Hit@8": 0.7802,
+            "delta_correct_weight_vs_P0": 0.0865,
+            "slot_flicker_rate": 0.5322,
+            "accepted_fraction": 1.0,
+            "mean_value_candidates": 16.0
+          },
+          "P4": {
+            "MRR": 0.6077,
+            "Hit@8": 0.7813,
+            "delta_correct_weight_vs_P0": 0.0928,
+            "slot_flicker_rate": 0.3285,
+            "accepted_fraction": 1.0,
+            "mean_value_candidates": 16.0
+          },
+          "P5": {
+            "MRR": 0.6077,
+            "Hit@8": 0.7813,
+            "delta_correct_weight_vs_P0": 0.0928,
+            "slot_flicker_rate": 0.3285,
+            "accepted_fraction": 0.5271,
+            "mean_value_candidates": 2.3098
+          }
+        },
+        "FL": {
+          "P0": {
+            "MRR": 0.7902,
+            "Hit@8": 0.9078,
+            "Hit@16": 0.9435
+          },
+          "P3": {
+            "MRR": 0.7243,
+            "Hit@8": 0.8939,
+            "delta_correct_weight_vs_P0": 0.1485,
+            "slot_flicker_rate": 0.5047,
+            "accepted_fraction": 1.0,
+            "mean_value_candidates": 16.0
+          },
+          "P4": {
+            "MRR": 0.7139,
+            "Hit@8": 0.8963,
+            "delta_correct_weight_vs_P0": 0.1399,
+            "slot_flicker_rate": 0.388,
+            "accepted_fraction": 1.0,
+            "mean_value_candidates": 16.0
+          },
+          "P5": {
+            "MRR": 0.7139,
+            "Hit@8": 0.8963,
+            "delta_correct_weight_vs_P0": 0.1399,
+            "slot_flicker_rate": 0.388,
+            "accepted_fraction": 0.5306,
+            "mean_value_candidates": 2.2661
+          }
+        }
+      },
+      "simple_multidepth_0180_0300": {
+        "F": {
+          "P0": {
+            "MRR": 0.825,
+            "Hit@8": 0.9431,
+            "Hit@16": 0.963
+          },
+          "P3": {
+            "MRR": 0.7545,
+            "Hit@8": 0.9434,
+            "delta_correct_weight_vs_P0": 0.1371,
+            "slot_flicker_rate": 0.6077,
+            "accepted_fraction": 1.0,
+            "mean_value_candidates": 16.0
+          },
+          "P4": {
+            "MRR": 0.7369,
+            "Hit@8": 0.9413,
+            "delta_correct_weight_vs_P0": 0.1344,
+            "slot_flicker_rate": 0.3799,
+            "accepted_fraction": 1.0,
+            "mean_value_candidates": 16.0
+          },
+          "P5": {
+            "MRR": 0.7369,
+            "Hit@8": 0.9413,
+            "delta_correct_weight_vs_P0": 0.1344,
+            "slot_flicker_rate": 0.3799,
+            "accepted_fraction": 0.6385,
+            "mean_value_candidates": 2.73
+          }
+        },
+        "FL": {
+          "P0": {
+            "MRR": 0.849,
+            "Hit@8": 0.9479,
+            "Hit@16": 0.9674
+          },
+          "P3": {
+            "MRR": 0.8025,
+            "Hit@8": 0.9312,
+            "delta_correct_weight_vs_P0": 0.1818,
+            "slot_flicker_rate": 0.4982,
+            "accepted_fraction": 1.0,
+            "mean_value_candidates": 16.0
+          },
+          "P4": {
+            "MRR": 0.7866,
+            "Hit@8": 0.9297,
+            "delta_correct_weight_vs_P0": 0.1796,
+            "slot_flicker_rate": 0.2436,
+            "accepted_fraction": 1.0,
+            "mean_value_candidates": 16.0
+          },
+          "P5": {
+            "MRR": 0.7866,
+            "Hit@8": 0.9297,
+            "delta_correct_weight_vs_P0": 0.1796,
+            "slot_flicker_rate": 0.2436,
+            "accepted_fraction": 0.6404,
+            "mean_value_candidates": 2.7641
+          }
+        }
+      },
+      "simple_occlusion_0360_0480": {
+        "F": {
+          "P0": {
+            "MRR": 0.7748,
+            "Hit@8": 0.9088,
+            "Hit@16": 0.9497
+          },
+          "P3": {
+            "MRR": 0.6815,
+            "Hit@8": 0.876,
+            "delta_correct_weight_vs_P0": 0.1204,
+            "slot_flicker_rate": 0.6101,
+            "accepted_fraction": 1.0,
+            "mean_value_candidates": 16.0
+          },
+          "P4": {
+            "MRR": 0.675,
+            "Hit@8": 0.8661,
+            "delta_correct_weight_vs_P0": 0.12,
+            "slot_flicker_rate": 0.2645,
+            "accepted_fraction": 1.0,
+            "mean_value_candidates": 16.0
+          },
+          "P5": {
+            "MRR": 0.675,
+            "Hit@8": 0.8661,
+            "delta_correct_weight_vs_P0": 0.12,
+            "slot_flicker_rate": 0.2645,
+            "accepted_fraction": 0.6652,
+            "mean_value_candidates": 2.3343
+          }
+        },
+        "FL": {
+          "P0": {
+            "MRR": 0.7172,
+            "Hit@8": 0.8463,
+            "Hit@16": 0.8967
+          },
+          "P3": {
+            "MRR": 0.6099,
+            "Hit@8": 0.7879,
+            "delta_correct_weight_vs_P0": 0.1072,
+            "slot_flicker_rate": 0.573,
+            "accepted_fraction": 1.0,
+            "mean_value_candidates": 16.0
+          },
+          "P4": {
+            "MRR": 0.6104,
+            "Hit@8": 0.7817,
+            "delta_correct_weight_vs_P0": 0.11,
+            "slot_flicker_rate": 0.3057,
+            "accepted_fraction": 1.0,
+            "mean_value_candidates": 16.0
+          },
+          "P5": {
+            "MRR": 0.6104,
+            "Hit@8": 0.7817,
+            "delta_correct_weight_vs_P0": 0.11,
+            "slot_flicker_rate": 0.3057,
+            "accepted_fraction": 0.6541,
+            "mean_value_candidates": 2.3283
+          }
+        }
+      }
+    }
+  },
+  "gates": {
+    "G1_candidate_hit8": {
+      "status": "pass_on_small_FL_manual_set",
+      "evidence": "P0 Hit@8=1.0000 on 19 matchable manually reviewed FL queries.",
+      "limitation": "F mode was not independently annotated and the set is small."
+    },
+    "G2_vote_improves_rank_or_weight": {
+      "status": "pass_on_small_FL_manual_set",
+      "evidence": "Manual MRR 0.8526→0.9123; mean correct weight=0.7194.",
+      "limitation": "Dense auxiliary proxy often shows rank loss, so this is not yet a stable full-frame result."
+    },
+    "G3_P5_outperforms_P3": {
+      "status": "fail",
+      "evidence": "P4/P5 greatly reduce slot flicker, but do not consistently improve P3 MRR or correct-candidate weight in dense proxy metrics; P5 ranking equals P4 by design."
+    },
+    "G4_FL_tail_coverage_without_harm": {
+      "status": "inconclusive",
+      "evidence": "Only one genuinely tail-only manual query was confirmed. Dense proxy shows FL helps some windows but hurts the occlusion window and its visibility labels are unreliable."
+    },
+    "G5_overlay_temporal_stability": {
+      "status": "partial",
+      "evidence": "P4 lowers dense slot flicker from 0.498–0.573 to 0.244–0.388 in FL, but residual switching and occlusion-boundary errors remain."
+    },
+    "G6_real_sparse_value_route": {
+      "status": "engineering_pass_D0_real_only",
+      "evidence": "P5 saves and serves a real Top-8-limited sparse_reference_mask; accepted tokens retain about 2.3–2.8 references on average.",
+      "limitation": "This is not yet a VACE Q/K/V Value route."
+    }
+  },
+  "observed_failure_modes": [
+    "Foreground trunk tokens can retrieve roof/eave candidates and remain falsely accepted.",
+    "Composed adjacent DIS is unsuitable as visibility ground truth; several visibly persistent surfaces were labelled invisible.",
+    "Motion-slot colour is a motion/depth-surface cue, not a semantic object mask.",
+    "FL is not uniformly better than F in the occlusion window."
+  ],
+  "next_algorithm_revision": [
+    "Replace scalar low-texture rejection with an explicit visibility/occlusion state learned or calibrated from local forward-backward evidence.",
+    "Make endpoint support explicit per hypothesis so an FL candidate cannot borrow confidence from an incompatible endpoint.",
+    "Add boundary-aware negative evidence for candidates crossing strong foreground/background edges.",
+    "Keep P4 identity propagation, but decouple temporal smoothing strength from candidate re-ranking to preserve good P3 ranks.",
+    "Repeat the frozen audit with independent F and FL annotations before any VACE integration."
+  ],
+  "plan_stage_status": {
+    "D0.1": "complete",
+    "D0.2": "complete",
+    "D0.3": "complete",
+    "D0.4": "not_executed_no_VACE_token_in_D0_real",
+    "D0.5": "complete_for_FL_small_audit; F_manual_split_pending",
+    "D0.6": "complete_D0_real",
+    "D0.7": "partial; sparse mask and temporal slots complete, explicit split/merge lifecycle not proven",
+    "D0.8": "not_executed",
+    "D0.9": "decision_reached_stop_before_VACE_integration"
+  },
+  "interpretation_boundary": "This run validates operations on explicit image-grid tokens and a sparse reference-token mask. It does not claim operation on VACE internal tokens or a diffusion step."
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "demo0-1.0",
+  "seed": 20260914,
+  "run_id": "demo0_v1_resnet18_l8_k4",
+  "input_root": "..",
+  "output_root": "runs",
+  "clips": [
+    {
+      "clip_id": "simple_translation_perspective",
+      "display_name": "简单平动透视关系",
+      "video": "简单平动透视关系.mp4",
+      "camera_csv": "简单平动透视关系.camera.csv",
+      "metadata": "简单平动透视关系.camera.metadata.json"
+    },
+    {
+      "clip_id": "asymmetric_building_translation",
+      "display_name": "非对称建筑平动",
+      "video": "非对称建筑平动.mp4",
+      "camera_csv": "非对称建筑平动.camera.csv",
+      "metadata": "非对称建筑平动.camera.metadata.json"
+    }
+  ],
+  "encoder": {
+    "name": "resnet18_imagenet1k_v1_layer3",
+    "weights": "ResNet18_Weights.IMAGENET1K_V1",
+    "require_pretrained": true,
+    "cache_dir": "cache/torch",
+    "resize_width": 512,
+    "resize_height": 288,
+    "stride": 16,
+    "projection_dim": 64
+  },
+  "matching": {
+    "top_l": 8,
+    "slot_count": 4,
+    "slot_iterations": 6,
+    "appearance_temperature": 0.07,
+    "slot_temperature": 1.5,
+    "reject_threshold": 0.5,
+    "low_confidence_threshold": 0.35
+  },
+  "training": {
+    "calibration_stride": 30,
+    "calibration_fraction": 0.5,
+    "epochs": 80,
+    "batch_tokens": 4096,
+    "learning_rate": 0.002,
+    "hidden_dim": 32
+  },
+  "evaluation": {
+    "test_stride": 30,
+    "weak_proxy": "OpenCV DIS bidirectional flow at resized image resolution",
+    "pck_radii_tokens": [1.0, 2.0],
+    "forward_backward_threshold_pixels": 2.0,
+    "max_eval_frames_per_clip": 32,
+    "status": "provisional"
+  },
+  "visualization": {
+    "overlay_alpha": 0.48,
+    "overlay_fps": 60.0,
+    "write_slot_png_sequence": true,
+    "write_flow_png_sequence": true,
+    "write_mp4_previews": true
+  }
+}

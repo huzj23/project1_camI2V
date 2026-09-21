@@ -1,0 +1,8 @@
+{
+  "execution_mode": "D0-Real",
+  "representation": "dense_multiscale_rootsift_rgb_v1",
+  "vace_checkpoint_used": false,
+  "diffusion_scheduler": null,
+  "diffusion_step": null,
+  "warning": "This run uses real RGB frames and is not a VACE or denoising-step result."
+}

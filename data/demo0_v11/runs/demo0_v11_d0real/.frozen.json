@@ -1,0 +1,19 @@
+{
+  "schema_version": "demo0-v1.1-freeze",
+  "run_id": "demo0_v11_d0real",
+  "policy": "Read-only conference baseline. New windows and algorithm changes must use a different run_id; pipeline refuses writes here.",
+  "file_count": 12863,
+  "total_bytes": 5523435547,
+  "by_extension": {
+    ".md": 1,
+    ".json": 54,
+    ".png": 12288,
+    ".npy": 375,
+    ".csv": 3,
+    ".jpg": 3,
+    ".mp4": 139
+  },
+  "aggregate_sha256": "c167e16225351f80289dfb71511c8e786ac4c1469e1c01eea9b7cc6f303c43bc",
+  "config_sha256": "98fade9468fe9bbe2818134a692a35ed9997d563fcab256ae99d19949e7ad7e7",
+  "scientific_status": "D0-Real baseline only; no VACE encoder or diffusion step"
+}

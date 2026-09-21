@@ -1,0 +1,39 @@
+{
+  "schema_version": "demo0-1.1-dynamic-slots-d0-real",
+  "window_id": "simple_multidepth_0180_0300",
+  "display_name": "动态槽 · 简单平动 · 多深度短窗",
+  "category": "simple_multidepth",
+  "status": "complete_d0_real",
+  "source": {
+    "video": "C:\\Users\\12447\\Desktop\\plan\\ShortTerm_WeeksCounted\\project4_CAMI2V\\data\\简单平动透视关系.mp4",
+    "camera_csv": "C:\\Users\\12447\\Desktop\\plan\\ShortTerm_WeeksCounted\\project4_CAMI2V\\data\\简单平动透视关系.camera.csv",
+    "metadata": "C:\\Users\\12447\\Desktop\\plan\\ShortTerm_WeeksCounted\\project4_CAMI2V\\data\\简单平动透视关系.camera.metadata.json",
+    "source_start_frame": 180,
+    "source_end_frame": 300,
+    "configured_source_end_frame": 300,
+    "video_sha256": "3fe61571b6da693b13b46b5d31875383c884b467f6655a17f18d9ecada766b03",
+    "camera_csv_sha256": "7e0ef71ca9438ca93cf5ca12d80b85990d1245d99d4f74bda814e014ee9209b0"
+  },
+  "window_video": "C:\\Users\\12447\\Desktop\\plan\\ShortTerm_WeeksCounted\\project4_CAMI2V\\data\\demo0_v11\\runs\\demo0_v11_dynamic32\\simple_multidepth_0180_0300\\window.mp4",
+  "window_video_sha256": "7bc09b5d32ec6a12215c6f8582b84636033477eed2d33ab5f433a4c686312c67",
+  "frame_count": 121,
+  "fps": 60.0,
+  "resolution": [
+    768,
+    432
+  ],
+  "reference_frames": {
+    "first": 0,
+    "last": 120
+  },
+  "contact_sheet": "contact_sheet.jpg",
+  "matching_geometry": "camera trajectory is recorded but not used for candidate scoring",
+  "token_grid": {
+    "height": 27,
+    "width": 48,
+    "count": 1296,
+    "stride": 16
+  },
+  "descriptor_dim": 265,
+  "metric_status": "auxiliary_provisional_pending_manual_annotations"
+}

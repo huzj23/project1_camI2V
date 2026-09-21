@@ -1,0 +1,72 @@
+{
+  "status": "auxiliary_provisional",
+  "modes": {
+    "FL": {
+      "P0": {
+        "valid_queries": 79618,
+        "Hit@1": 0.7901605164661257,
+        "Hit@8": 0.947850988469944,
+        "Hit@16": 0.967406867793715,
+        "MRR": 0.8489986365471495
+      },
+      "raw_candidate_order": {
+        "valid_queries": 79618,
+        "Hit@1": 0.7901605164661257,
+        "Hit@8": 0.947850988469944,
+        "Hit@16": 0.967406867793715,
+        "MRR": 0.8489986365471495
+      },
+      "visibility_groups_provisional": {
+        "first_visible": {
+          "valid_queries": 51226,
+          "Hit@1": 0.8182368328583142,
+          "Hit@8": 0.9639245695545231,
+          "Hit@16": 0.9804396205052122,
+          "MRR": 0.8726806487694513
+        },
+        "first_not_visible": {
+          "valid_queries": 48274,
+          "Hit@1": 0.4405684219248457,
+          "Hit@8": 0.5496333430003729,
+          "Hit@16": 0.5650867962049965,
+          "MRR": 0.4812750844178217
+        },
+        "first_only": {
+          "valid_queries": 25943,
+          "Hit@1": 0.8586516594071618,
+          "Hit@8": 0.9578306286859654,
+          "Hit@16": 0.9663107582006707,
+          "MRR": 0.8975408146398394
+        },
+        "last_only": {
+          "valid_queries": 28457,
+          "Hit@1": 0.7378149488702253,
+          "Hit@8": 0.9167515901184243,
+          "Hit@16": 0.9417366553044945,
+          "MRR": 0.8044289465069063
+        },
+        "both_endpoints": {
+          "valid_queries": 25283,
+          "Hit@1": 0.7767669975873116,
+          "Hit@8": 0.9701775896847684,
+          "Hit@16": 0.9949373096547087,
+          "MRR": 0.8471715207713704
+        },
+        "neither_endpoint": {
+          "valid_queries": 19817,
+          "Hit@1": 0.013725589140636827,
+          "Hit@8": 0.022455467527880104,
+          "Hit@16": 0.02422162789524146,
+          "MRR": 0.017229595520961517
+        }
+      },
+      "valid_fraction": 0.5077160493827161,
+      "mean_top_score": 0.994583010673523,
+      "mean_top1_top2_margin": 0.003488114569336176,
+      "mean_normalized_entropy": 0.8897435665130615,
+      "mean_correct_candidate_weight": 0.2933182716369629,
+      "mean_texture": 0.4569687843322754,
+      "label_source": "adjacent-flow composition; provisional, not ground truth"
+    }
+  }
+}

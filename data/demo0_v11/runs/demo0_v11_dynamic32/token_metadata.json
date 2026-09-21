@@ -1,0 +1,16 @@
+{
+  "grid_height": 27,
+  "grid_width": 48,
+  "token_count": 1296,
+  "nominal_pixel_box": [
+    16,
+    16
+  ],
+  "descriptor_support_pixels": [
+    24,
+    40
+  ],
+  "representation": "dense_multiscale_rootsift_rgb_v1",
+  "coordinate_convention": "xy token coordinates; pixel center=(xy+0.5)*stride",
+  "receptive_field_note": "D0-Real descriptor support is explicitly bounded by descriptor_patch_sizes; it is not a VACE receptive field."
+}

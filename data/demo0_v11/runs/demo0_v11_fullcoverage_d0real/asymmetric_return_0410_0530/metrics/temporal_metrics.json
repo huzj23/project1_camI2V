@@ -1,0 +1,135 @@
+{
+  "status": "auxiliary_provisional",
+  "methods": {
+    "F_P1": {
+      "method_spec": {
+        "hypothesis": "H0",
+        "use_spatial": false,
+        "use_temporal": false,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "slot_flicker_rate": 0.5882513523101807,
+      "adjacent_track_role": "disclosed temporal continuity signal and provisional audit only",
+      "object_surface_persistence": "pending frozen manual annotations",
+      "cross_boundary_merge_rate": "pending frozen manual annotations"
+    },
+    "F_P2": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": false,
+        "use_temporal": false,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "slot_flicker_rate": 0.6036045551300049,
+      "adjacent_track_role": "disclosed temporal continuity signal and provisional audit only",
+      "object_surface_persistence": "pending frozen manual annotations",
+      "cross_boundary_merge_rate": "pending frozen manual annotations"
+    },
+    "F_P3": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": false,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "slot_flicker_rate": 0.5992160439491272,
+      "adjacent_track_role": "disclosed temporal continuity signal and provisional audit only",
+      "object_surface_persistence": "pending frozen manual annotations",
+      "cross_boundary_merge_rate": "pending frozen manual annotations"
+    },
+    "F_P4": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": true,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "slot_flicker_rate": 0.35063546895980835,
+      "adjacent_track_role": "disclosed temporal continuity signal and provisional audit only",
+      "object_surface_persistence": "pending frozen manual annotations",
+      "cross_boundary_merge_rate": "pending frozen manual annotations"
+    },
+    "F_P5": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": true,
+        "use_rejection": true,
+        "use_sparse_value_mask": true
+      },
+      "slot_flicker_rate": 0.35063546895980835,
+      "adjacent_track_role": "disclosed temporal continuity signal and provisional audit only",
+      "object_surface_persistence": "pending frozen manual annotations",
+      "cross_boundary_merge_rate": "pending frozen manual annotations"
+    },
+    "FL_P1": {
+      "method_spec": {
+        "hypothesis": "H0",
+        "use_spatial": false,
+        "use_temporal": false,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "slot_flicker_rate": 0.5709904432296753,
+      "adjacent_track_role": "disclosed temporal continuity signal and provisional audit only",
+      "object_surface_persistence": "pending frozen manual annotations",
+      "cross_boundary_merge_rate": "pending frozen manual annotations"
+    },
+    "FL_P2": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": false,
+        "use_temporal": false,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "slot_flicker_rate": 0.5795069932937622,
+      "adjacent_track_role": "disclosed temporal continuity signal and provisional audit only",
+      "object_surface_persistence": "pending frozen manual annotations",
+      "cross_boundary_merge_rate": "pending frozen manual annotations"
+    },
+    "FL_P3": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": false,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "slot_flicker_rate": 0.5648114681243896,
+      "adjacent_track_role": "disclosed temporal continuity signal and provisional audit only",
+      "object_surface_persistence": "pending frozen manual annotations",
+      "cross_boundary_merge_rate": "pending frozen manual annotations"
+    },
+    "FL_P4": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": true,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "slot_flicker_rate": 0.28718486428260803,
+      "adjacent_track_role": "disclosed temporal continuity signal and provisional audit only",
+      "object_surface_persistence": "pending frozen manual annotations",
+      "cross_boundary_merge_rate": "pending frozen manual annotations"
+    },
+    "FL_P5": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": true,
+        "use_rejection": true,
+        "use_sparse_value_mask": true
+      },
+      "slot_flicker_rate": 0.28718486428260803,
+      "adjacent_track_role": "disclosed temporal continuity signal and provisional audit only",
+      "object_surface_persistence": "pending frozen manual annotations",
+      "cross_boundary_merge_rate": "pending frozen manual annotations"
+    }
+  }
+}

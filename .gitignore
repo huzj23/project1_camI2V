@@ -1,0 +1,75 @@
+# ============================================================
+# project4_CAMI2V (.gitignore)
+#
+# 入库原则：
+#   代码 / 文档 / 配置 / 小型清单  -> 入库
+#   原始视频 / 模型权重 / 中间数组 / 渲染帧 / 环境缓存 -> 不入库
+#
+# 本机实测：.png 19.3 GB(68545 文件)、.npy 7.2 GB、.jar 1.1 GB、.mp4 1.0 GB
+# 全部排除后，入库内容约 25 MB 量级。
+# ============================================================
+
+# ---------- R0 凭据：任何情况下不得入库 ----------
+log/key.txt
+**/key.txt
+*.pem
+*.ppk
+id_rsa*
+
+# ---------- 本机环境与构建缓存 ----------
+.mc_setup/
+**/__pycache__/
+*.pyc
+mc_tools/v2dit-camera-logger/.gradle/
+mc_tools/v2dit-camera-logger/build/
+mc_tools/v2dit-camera-logger/run/
+**/node_modules/
+data/demo0/vendor/
+# 依赖缓存（npm/torch 等下载缓存，约 192 MB）
+data/demo0/cache/
+**/.cache/
+
+# ---------- 运行时日志与构建产物 ----------
+*.log
+**/dist/
+**/runtime/
+
+# ---------- 第三方源码克隆（只记录 commit，不入库）----------
+# 见 AGENTS.md 的 CamI2V 上游锁定信息
+tmp/
+
+# ---------- 大体积二进制与数据产物 ----------
+# 渲染帧 / 预览图
+*.png
+*.jpg
+*.jpeg
+# 中间数组
+*.npy
+*.npz
+# 原始视频
+*.mp4
+*.mov
+*.avi
+*.mkv
+# 模型权重
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+# 运行时与压缩包
+*.jar
+*.zip
+*.7z
+*.rar
+*.dll
+*.so
+*.node
+*.jsa
+*.sym
+*.backup
+*.pack
+# 教材原文（18 MB，版权与体积双重原因不入库）
+*.docx
+
+# ---------- 例外：需要保留的小体积图片 ----------
+!图片1.png

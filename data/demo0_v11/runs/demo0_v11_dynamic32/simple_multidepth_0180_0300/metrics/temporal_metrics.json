@@ -1,0 +1,18 @@
+{
+  "status": "auxiliary_provisional",
+  "methods": {
+    "FL_P5": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": true,
+        "use_rejection": true,
+        "use_sparse_value_mask": true
+      },
+      "slot_flicker_rate": 0.06441447883844376,
+      "adjacent_track_role": "disclosed temporal continuity signal and provisional audit only",
+      "object_surface_persistence": "pending frozen manual annotations",
+      "cross_boundary_merge_rate": "pending frozen manual annotations"
+    }
+  }
+}

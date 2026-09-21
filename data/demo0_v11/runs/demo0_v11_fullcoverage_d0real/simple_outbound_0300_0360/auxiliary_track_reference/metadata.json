@@ -1,0 +1,18 @@
+{
+  "role": "auxiliary_track_reference",
+  "algorithm": "OpenCV DIS MEDIUM only between adjacent frames, composed over the short window",
+  "used_as_candidate_input": false,
+  "used_as_training_label": false,
+  "used_for": [
+    "temporal slot propagation",
+    "provisional candidate audit"
+  ],
+  "warning": "Composed tracks can drift and are not geometry ground truth.",
+  "frame_count": 61,
+  "token_count": 1296,
+  "token_grid": {
+    "height": 27,
+    "width": 48,
+    "stride": 16
+  }
+}

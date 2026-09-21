@@ -1,0 +1,1837 @@
+{
+  "schema_version": "demo0-1.1-manual-annotations-draft",
+  "frozen": false,
+  "review_method": "three-pane visual review aided by disclosed adjacent-flow composition",
+  "queries": [
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_multidepth_0180_0300",
+      "frame_id": 60,
+      "token_id": 682,
+      "token_xy": [
+        10,
+        14
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "unique_texture",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": true,
+      "confidence": 0.50927734375,
+      "reject_probability": 0.490966796875,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "raw_scores": [
+        0.99755859375,
+        0.99658203125,
+        0.99609375,
+        0.99609375,
+        0.98681640625,
+        0.98681640625,
+        0.98583984375,
+        0.98583984375,
+        0.98583984375,
+        0.9853515625,
+        0.984375,
+        0.9833984375,
+        0.98193359375,
+        0.9814453125,
+        0.98046875,
+        0.97998046875
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          6.75,
+          14.0
+        ],
+        "last_xy": [
+          13.375,
+          14.0
+        ],
+        "first_reliability": 0.14990234375,
+        "last_reliability": 0.167724609375,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "01_simple_multidepth_0180_0300_unique_texture_f060_t0682.png",
+      "note": "Window corner remains visible at both endpoints; flow visibility failed.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_multidepth_0180_0300",
+      "frame_id": 60,
+      "token_id": 394,
+      "token_xy": [
+        10,
+        8
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "repeated_texture",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        5,
+        6
+      ],
+      "correct_candidate_raw_ranks": [
+        5,
+        6
+      ],
+      "correct_candidate_verified_ranks": [
+        3,
+        4
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": false,
+      "confidence": 0.4228515625,
+      "reject_probability": 0.5771484375,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "raw_scores": [
+        0.99658203125,
+        0.99609375,
+        0.99560546875,
+        0.99462890625,
+        0.9921875,
+        0.9921875,
+        0.98876953125,
+        0.98876953125,
+        0.98876953125,
+        0.9873046875,
+        0.98681640625,
+        0.986328125,
+        0.98583984375,
+        0.98583984375,
+        0.98583984375,
+        0.9853515625
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          6.2890625,
+          8.0
+        ],
+        "last_xy": [
+          13.7421875,
+          8.0
+        ],
+        "first_reliability": 0.53564453125,
+        "last_reliability": 0.5771484375,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "02_simple_multidepth_0180_0300_repeated_texture_f060_t0394.png",
+      "note": "Repeated roof texture; two token boxes agree with the physical roof patch.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_multidepth_0180_0300",
+      "frame_id": 60,
+      "token_id": 499,
+      "token_xy": [
+        19,
+        10
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "building_corner",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        7
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        7
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        3
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": true,
+      "confidence": 0.44287109375,
+      "reject_probability": 0.55712890625,
+      "sparse_allowed_raw_ranks": [
+        1,
+        3,
+        4,
+        6,
+        7
+      ],
+      "raw_scores": [
+        0.98876953125,
+        0.986328125,
+        0.982421875,
+        0.9814453125,
+        0.9814453125,
+        0.98046875,
+        0.97998046875,
+        0.97900390625,
+        0.9775390625,
+        0.9775390625,
+        0.97607421875,
+        0.97509765625,
+        0.974609375,
+        0.974609375,
+        0.97412109375,
+        0.9736328125
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          15.2421875,
+          10.0
+        ],
+        "last_xy": [
+          22.609375,
+          10.0
+        ],
+        "first_reliability": 0.129638671875,
+        "last_reliability": 0.09161376953125,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "03_simple_multidepth_0180_0300_building_corner_f060_t0499.png",
+      "note": "Near-building eave edge remains visible; flow visibility failed.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_multidepth_0180_0300",
+      "frame_id": 60,
+      "token_id": 408,
+      "token_xy": [
+        24,
+        8
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "multi_depth",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        10,
+        12
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        10,
+        12
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": false,
+      "confidence": 0.450927734375,
+      "reject_probability": 0.54931640625,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        4,
+        7,
+        8
+      ],
+      "raw_scores": [
+        0.99365234375,
+        0.99267578125,
+        0.99072265625,
+        0.98974609375,
+        0.98486328125,
+        0.984375,
+        0.98193359375,
+        0.9814453125,
+        0.9794921875,
+        0.9794921875,
+        0.978515625,
+        0.9775390625,
+        0.9775390625,
+        0.97705078125,
+        0.97509765625,
+        0.974609375
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          22.984375,
+          8.0
+        ],
+        "last_xy": [
+          25.0,
+          8.0
+        ],
+        "first_reliability": 0.271484375,
+        "last_reliability": 0.24267578125,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "04_simple_multidepth_0180_0300_multi_depth_f060_t0408.png",
+      "note": "Distinct coloured tower is visible at both endpoints.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_multidepth_0180_0300",
+      "frame_id": 60,
+      "token_id": 906,
+      "token_xy": [
+        42,
+        18
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "multi_depth",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": false,
+      "confidence": 0.384765625,
+      "reject_probability": 0.615234375,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "raw_scores": [
+        0.99853515625,
+        0.998046875,
+        0.99560546875,
+        0.994140625,
+        0.99169921875,
+        0.98876953125,
+        0.98779296875,
+        0.984375,
+        0.984375,
+        0.98388671875,
+        0.98193359375,
+        0.98095703125,
+        0.97900390625,
+        0.97802734375,
+        0.9765625,
+        0.97509765625
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          40.9375,
+          18.0
+        ],
+        "last_xy": [
+          43.09375,
+          18.0
+        ],
+        "first_reliability": 0.377197265625,
+        "last_reliability": 0.40625,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "05_simple_multidepth_0180_0300_multi_depth_f060_t0906.png",
+      "note": "All displayed candidates overlap the same distant roof detail at token resolution.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_multidepth_0180_0300",
+      "frame_id": 60,
+      "token_id": 480,
+      "token_xy": [
+        0,
+        10
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "tail_only",
+      "first_visible": false,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        2,
+        8
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        2,
+        8
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        2,
+        8
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": true,
+      "confidence": 0.63330078125,
+      "reject_probability": 0.36669921875,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        3
+      ],
+      "raw_scores": [
+        0.978515625,
+        0.9658203125,
+        0.96044921875,
+        0.95751953125,
+        0.9521484375,
+        0.951171875,
+        0.95068359375,
+        0.943359375,
+        0.94091796875,
+        0.9404296875,
+        0.93408203125,
+        0.93359375,
+        0.931640625,
+        0.92529296875,
+        0.9248046875,
+        0.921875
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          -0.038665771484375,
+          0.41845703125
+        ],
+        "last_xy": [
+          3.75390625,
+          10.0
+        ],
+        "first_reliability": 0.0001036524772644043,
+        "last_reliability": 0.625,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "06_simple_multidepth_0180_0300_tail_only_f060_t0480.png",
+      "note": "Left-boundary roof token is genuinely tail-only in this window.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_multidepth_0180_0300",
+      "frame_id": 60,
+      "token_id": 402,
+      "token_xy": [
+        18,
+        8
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "proxy_visibility_failure",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": false,
+      "confidence": 0.454345703125,
+      "reject_probability": 0.54541015625,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+      ],
+      "raw_scores": [
+        0.984375,
+        0.98193359375,
+        0.97998046875,
+        0.9765625,
+        0.97412109375,
+        0.97412109375,
+        0.9736328125,
+        0.970703125,
+        0.9697265625,
+        0.96826171875,
+        0.9677734375,
+        0.966796875,
+        0.96630859375,
+        0.96484375,
+        0.9638671875,
+        0.9638671875
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          15.75,
+          7.703125
+        ],
+        "last_xy": [
+          20.734375,
+          7.99609375
+        ],
+        "first_reliability": 0.001575469970703125,
+        "last_reliability": 0.08477783203125,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "07_simple_multidepth_0180_0300_neither_visible_f060_t0402.png",
+      "note": "The roof/white-column boundary is visible at both endpoints; this is not a neither-visible case.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_multidepth_0180_0300",
+      "frame_id": 60,
+      "token_id": 280,
+      "token_xy": [
+        40,
+        5
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "sky_low_texture",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [],
+      "correct_candidate_raw_ranks": [],
+      "correct_candidate_verified_ranks": [],
+      "should_reject": true,
+      "temporal_slot_consistent": true,
+      "confidence": 0.10662841796875,
+      "reject_probability": 0.8935546875,
+      "sparse_allowed_raw_ranks": [],
+      "raw_scores": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          39.46875,
+          4.96875
+        ],
+        "last_xy": [
+          41.84375,
+          4.93359375
+        ],
+        "first_reliability": 0.008697509765625,
+        "last_reliability": 0.002685546875,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "08_simple_multidepth_0180_0300_sky_low_texture_f060_t0280.png",
+      "note": "Uniform sky is visible, but no physical token correspondence is visually identifiable.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_occlusion_0360_0480",
+      "frame_id": 60,
+      "token_id": 693,
+      "token_xy": [
+        21,
+        14
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "unique_texture",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        8
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        8
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        2
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": true,
+      "confidence": 0.630859375,
+      "reject_probability": 0.368896484375,
+      "sparse_allowed_raw_ranks": [
+        1
+      ],
+      "raw_scores": [
+        0.9951171875,
+        0.99267578125,
+        0.986328125,
+        0.9853515625,
+        0.9833984375,
+        0.98291015625,
+        0.9814453125,
+        0.98095703125,
+        0.97900390625,
+        0.978515625,
+        0.978515625,
+        0.97705078125,
+        0.9765625,
+        0.974609375,
+        0.97412109375,
+        0.9736328125
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          18.09375,
+          14.0
+        ],
+        "last_xy": [
+          29.859375,
+          13.9921875
+        ],
+        "first_reliability": 0.182861328125,
+        "last_reliability": 0.00016891956329345703,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "09_simple_occlusion_0360_0480_unique_texture_f060_t0693.png",
+      "note": "Window corner remains visible behind the moving foreground trunk.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_occlusion_0360_0480",
+      "frame_id": 60,
+      "token_id": 404,
+      "token_xy": [
+        20,
+        8
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "repeated_texture",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        3
+      ],
+      "correct_candidate_raw_ranks": [
+        3
+      ],
+      "correct_candidate_verified_ranks": [
+        1
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": false,
+      "confidence": 0.447021484375,
+      "reject_probability": 0.55322265625,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        3,
+        7,
+        8
+      ],
+      "raw_scores": [
+        0.98974609375,
+        0.98828125,
+        0.98779296875,
+        0.98681640625,
+        0.98583984375,
+        0.9853515625,
+        0.9853515625,
+        0.98486328125,
+        0.98388671875,
+        0.98291015625,
+        0.982421875,
+        0.9814453125,
+        0.98095703125,
+        0.98095703125,
+        0.98046875,
+        0.98046875
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          16.265625,
+          8.0
+        ],
+        "last_xy": [
+          29.59375,
+          8.0
+        ],
+        "first_reliability": 0.55029296875,
+        "last_reliability": 0.02813720703125,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "10_simple_occlusion_0360_0480_repeated_texture_f060_t0404.png",
+      "note": "Only the leading roof candidate is a conservative physical match.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_occlusion_0360_0480",
+      "frame_id": 60,
+      "token_id": 558,
+      "token_xy": [
+        30,
+        11
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "building_corner",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        2,
+        4,
+        10
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        2,
+        4,
+        10
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": true,
+      "confidence": 0.60107421875,
+      "reject_probability": 0.398681640625,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "raw_scores": [
+        0.96484375,
+        0.96044921875,
+        0.95947265625,
+        0.95751953125,
+        0.95556640625,
+        0.95263671875,
+        0.9521484375,
+        0.94921875,
+        0.9482421875,
+        0.94580078125,
+        0.94287109375,
+        0.94140625,
+        0.94091796875,
+        0.9404296875,
+        0.93798828125,
+        0.93701171875
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          26.25,
+          11.0
+        ],
+        "last_xy": [
+          33.75,
+          11.0
+        ],
+        "first_reliability": 0.2296142578125,
+        "last_reliability": 0.2890625,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "11_simple_occlusion_0360_0480_building_corner_f060_t0558.png",
+      "note": "House/tower boundary is visible and represented by four neighbouring token boxes.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_occlusion_0360_0480",
+      "frame_id": 60,
+      "token_id": 906,
+      "token_xy": [
+        42,
+        18
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "multi_depth",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        2
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        2
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        2
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": false,
+      "confidence": 0.61572265625,
+      "reject_probability": 0.384521484375,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2
+      ],
+      "raw_scores": [
+        0.99560546875,
+        0.9931640625,
+        0.9775390625,
+        0.9755859375,
+        0.97412109375,
+        0.97021484375,
+        0.9697265625,
+        0.96923828125,
+        0.96533203125,
+        0.96484375,
+        0.962890625,
+        0.9619140625,
+        0.9619140625,
+        0.95556640625,
+        0.95556640625,
+        0.9521484375
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          41.0,
+          18.0
+        ],
+        "last_xy": [
+          42.625,
+          17.96875
+        ],
+        "first_reliability": 0.110107421875,
+        "last_reliability": 0.034149169921875,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "12_simple_occlusion_0360_0480_multi_depth_f060_t0906.png",
+      "note": "Distant roof remains visible; composed-flow visibility was a false negative.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_occlusion_0360_0480",
+      "frame_id": 60,
+      "token_id": 541,
+      "token_xy": [
+        13,
+        11
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "occlusion",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [],
+      "correct_candidate_raw_ranks": [],
+      "correct_candidate_verified_ranks": [],
+      "should_reject": true,
+      "temporal_slot_consistent": true,
+      "confidence": 0.47265625,
+      "reject_probability": 0.52734375,
+      "sparse_allowed_raw_ranks": [
+        3,
+        5,
+        6
+      ],
+      "raw_scores": [
+        0.96533203125,
+        0.9638671875,
+        0.9609375,
+        0.9609375,
+        0.9609375,
+        0.95947265625,
+        0.95947265625,
+        0.95849609375,
+        0.95849609375,
+        0.95556640625,
+        0.95458984375,
+        0.9541015625,
+        0.95361328125,
+        0.953125,
+        0.95263671875,
+        0.951171875
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          -0.1962890625,
+          2.2578125
+        ],
+        "last_xy": [
+          27.9375,
+          11.0
+        ],
+        "first_reliability": 0.06591796875,
+        "last_reliability": 0.2548828125,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "13_simple_occlusion_0360_0480_occlusion_f060_t0541.png",
+      "note": "Foreground trunk token has no trunk match in Top-8; P5 incorrectly accepts roof-edge candidates.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_occlusion_0360_0480",
+      "frame_id": 60,
+      "token_id": 492,
+      "token_xy": [
+        12,
+        10
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "tail_only",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [],
+      "correct_candidate_raw_ranks": [],
+      "correct_candidate_verified_ranks": [],
+      "should_reject": true,
+      "temporal_slot_consistent": true,
+      "confidence": 0.57958984375,
+      "reject_probability": 0.42041015625,
+      "sparse_allowed_raw_ranks": [
+        1,
+        3,
+        5,
+        8
+      ],
+      "raw_scores": [
+        0.96435546875,
+        0.9609375,
+        0.95703125,
+        0.95556640625,
+        0.95458984375,
+        0.95263671875,
+        0.9521484375,
+        0.94873046875,
+        0.94677734375,
+        0.93994140625,
+        0.93994140625,
+        0.939453125,
+        0.93896484375,
+        0.9375,
+        0.93701171875,
+        0.93310546875
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          -0.1947021484375,
+          1.951171875
+        ],
+        "last_xy": [
+          15.875,
+          10.0
+        ],
+        "first_reliability": 0.010833740234375,
+        "last_reliability": 0.52099609375,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "14_simple_occlusion_0360_0480_tail_only_f060_t0492.png",
+      "note": "Foreground trunk token again misses the physical match; P5 is a false accept.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_occlusion_0360_0480",
+      "frame_id": 60,
+      "token_id": 1100,
+      "token_xy": [
+        44,
+        22
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "proxy_visibility_failure",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        6,
+        10,
+        12
+      ],
+      "correct_candidate_raw_ranks": [
+        6,
+        10,
+        12
+      ],
+      "correct_candidate_verified_ranks": [
+        2,
+        5,
+        7
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": false,
+      "confidence": 0.52587890625,
+      "reject_probability": 0.473876953125,
+      "sparse_allowed_raw_ranks": [
+        2,
+        4,
+        7
+      ],
+      "raw_scores": [
+        0.9931640625,
+        0.9912109375,
+        0.9873046875,
+        0.9853515625,
+        0.984375,
+        0.984375,
+        0.98291015625,
+        0.9814453125,
+        0.98095703125,
+        0.98046875,
+        0.97998046875,
+        0.97998046875,
+        0.9794921875,
+        0.9755859375,
+        0.9755859375,
+        0.9755859375
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          41.46875,
+          22.0
+        ],
+        "last_xy": [
+          39.9375,
+          18.84375
+        ],
+        "first_reliability": 0.1480712890625,
+        "last_reliability": 0.026519775390625,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "15_simple_occlusion_0360_0480_neither_visible_f060_t1100.png",
+      "note": "Foreground grass is visible at both endpoints; this is not a neither-visible case.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "simple_occlusion_0360_0480",
+      "frame_id": 60,
+      "token_id": 280,
+      "token_xy": [
+        40,
+        5
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "sky_low_texture",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [],
+      "correct_candidate_raw_ranks": [],
+      "correct_candidate_verified_ranks": [],
+      "should_reject": true,
+      "temporal_slot_consistent": true,
+      "confidence": 0.137939453125,
+      "reject_probability": 0.8623046875,
+      "sparse_allowed_raw_ranks": [],
+      "raw_scores": [
+        0.9677734375,
+        0.96337890625,
+        0.955078125,
+        0.9482421875,
+        0.94775390625,
+        0.94775390625,
+        0.94482421875,
+        0.9375,
+        0.93408203125,
+        0.93212890625,
+        0.931640625,
+        0.9248046875,
+        0.921875,
+        0.921875,
+        0.91455078125,
+        0.91015625
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          38.4375,
+          5.00390625
+        ],
+        "last_xy": [
+          43.625,
+          4.9921875
+        ],
+        "first_reliability": 0.00042438507080078125,
+        "last_reliability": 4.83393669128418e-05,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "16_simple_occlusion_0360_0480_sky_low_texture_f060_t0280.png",
+      "note": "Uniform sky is visible, but its physical correspondence is unidentifiable.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "asymmetric_outbound_0060_0120",
+      "frame_id": 30,
+      "token_id": 707,
+      "token_xy": [
+        35,
+        14
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "unique_texture",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": false,
+      "confidence": 0.343994140625,
+      "reject_probability": 0.65576171875,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8
+      ],
+      "raw_scores": [
+        0.99853515625,
+        0.99853515625,
+        0.99658203125,
+        0.99609375,
+        0.99560546875,
+        0.9951171875,
+        0.9951171875,
+        0.99462890625,
+        0.99462890625,
+        0.99365234375,
+        0.9931640625,
+        0.99267578125,
+        0.99169921875,
+        0.9912109375,
+        0.9912109375,
+        0.99072265625
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          37.625,
+          14.0
+        ],
+        "last_xy": [
+          31.25,
+          14.0
+        ],
+        "first_reliability": 0.724609375,
+        "last_reliability": 0.75,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "17_asymmetric_outbound_0060_0120_unique_texture_f030_t0707.png",
+      "note": "Selected token is the right wooden wall, not the torch; neighbouring boxes match the same wall strip.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "asymmetric_outbound_0060_0120",
+      "frame_id": 30,
+      "token_id": 504,
+      "token_xy": [
+        24,
+        10
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "repeated_texture",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        2,
+        3,
+        7,
+        8
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        2,
+        3,
+        7,
+        8
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        2,
+        3,
+        5,
+        7
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": true,
+      "confidence": 0.398193359375,
+      "reject_probability": 0.6015625,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        3,
+        7,
+        8
+      ],
+      "raw_scores": [
+        0.99560546875,
+        0.99072265625,
+        0.98974609375,
+        0.98876953125,
+        0.98486328125,
+        0.984375,
+        0.98388671875,
+        0.98291015625,
+        0.98046875,
+        0.9794921875,
+        0.97900390625,
+        0.9775390625,
+        0.97607421875,
+        0.9755859375,
+        0.9755859375,
+        0.97509765625
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          26.6875,
+          10.0
+        ],
+        "last_xy": [
+          19.953125,
+          10.0078125
+        ],
+        "first_reliability": 0.71337890625,
+        "last_reliability": 0.5556640625,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "18_asymmetric_outbound_0060_0120_repeated_texture_f030_t0504.png",
+      "note": "Cobblestone silhouette is visible; repeated texture admits several neighbouring matches.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "asymmetric_outbound_0060_0120",
+      "frame_id": 30,
+      "token_id": 378,
+      "token_xy": [
+        42,
+        7
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "building_corner",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        14
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        14
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": false,
+      "confidence": 0.420654296875,
+      "reject_probability": 0.5791015625,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        3,
+        4,
+        8
+      ],
+      "raw_scores": [
+        0.99609375,
+        0.994140625,
+        0.98974609375,
+        0.98681640625,
+        0.98486328125,
+        0.984375,
+        0.98388671875,
+        0.9833984375,
+        0.97314453125,
+        0.97216796875,
+        0.96630859375,
+        0.9619140625,
+        0.96044921875,
+        0.9580078125,
+        0.95556640625,
+        0.9521484375
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          44.65625,
+          6.96484375
+        ],
+        "last_xy": [
+          38.6875,
+          7.0234375
+        ],
+        "first_reliability": 0.03375244140625,
+        "last_reliability": 0.00345611572265625,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "19_asymmetric_outbound_0060_0120_building_corner_f030_t0378.png",
+      "note": "Stepped roof corner is plainly visible at both endpoints; flow visibility failed.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "asymmetric_outbound_0060_0120",
+      "frame_id": 30,
+      "token_id": 946,
+      "token_xy": [
+        34,
+        19
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "multi_depth",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        3,
+        5
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        3,
+        5
+      ],
+      "correct_candidate_verified_ranks": [
+        2,
+        3,
+        6
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": true,
+      "confidence": 0.420166015625,
+      "reject_probability": 0.580078125,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "raw_scores": [
+        0.99853515625,
+        0.99853515625,
+        0.99755859375,
+        0.9970703125,
+        0.9970703125,
+        0.99658203125,
+        0.9951171875,
+        0.99462890625,
+        0.994140625,
+        0.99365234375,
+        0.99365234375,
+        0.9931640625,
+        0.9931640625,
+        0.99267578125,
+        0.99267578125,
+        0.9921875
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          37.65625,
+          19.0
+        ],
+        "last_xy": [
+          28.453125,
+          19.0
+        ],
+        "first_reliability": 0.74365234375,
+        "last_reliability": 0.6728515625,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "20_asymmetric_outbound_0060_0120_multi_depth_f030_t0946.png",
+      "note": "Three candidates overlap the front-foundation detail at token resolution.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "asymmetric_outbound_0060_0120",
+      "frame_id": 30,
+      "token_id": 568,
+      "token_xy": [
+        40,
+        11
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "proxy_visibility_failure",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        2,
+        5,
+        10
+      ],
+      "correct_candidate_raw_ranks": [
+        2,
+        5,
+        10
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        5,
+        6
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": false,
+      "confidence": 0.441162109375,
+      "reject_probability": 0.55908203125,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "raw_scores": [
+        0.98779296875,
+        0.98779296875,
+        0.986328125,
+        0.9853515625,
+        0.9833984375,
+        0.9794921875,
+        0.9794921875,
+        0.978515625,
+        0.97802734375,
+        0.9775390625,
+        0.97705078125,
+        0.97607421875,
+        0.96728515625,
+        0.96630859375,
+        0.96533203125,
+        0.96484375
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          42.53125,
+          11.15625
+        ],
+        "last_xy": [
+          36.25,
+          11.0
+        ],
+        "first_reliability": 0.08203125,
+        "last_reliability": 0.468505859375,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "21_asymmetric_outbound_0060_0120_tail_only_f030_t0568.png",
+      "note": "Right wall/eave token is visible at both endpoints; the tail-only proxy label was wrong.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "asymmetric_outbound_0060_0120",
+      "frame_id": 30,
+      "token_id": 789,
+      "token_xy": [
+        21,
+        16
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "proxy_visibility_failure",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": true,
+      "confidence": 0.51171875,
+      "reject_probability": 0.48828125,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        4,
+        5,
+        8
+      ],
+      "raw_scores": [
+        0.99853515625,
+        0.99560546875,
+        0.9853515625,
+        0.9833984375,
+        0.98193359375,
+        0.9794921875,
+        0.97900390625,
+        0.97900390625,
+        0.978515625,
+        0.9775390625,
+        0.9755859375,
+        0.9755859375,
+        0.9697265625,
+        0.96826171875,
+        0.96435546875,
+        0.96337890625
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          21.375,
+          16.0
+        ],
+        "last_xy": [
+          18.25,
+          15.9921875
+        ],
+        "first_reliability": 0.0660400390625,
+        "last_reliability": 0.042877197265625,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "22_asymmetric_outbound_0060_0120_neither_visible_f030_t0789.png",
+      "note": "Left cobblestone silhouette is visible at both endpoints; this is not a neither-visible case.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "asymmetric_outbound_0060_0120",
+      "frame_id": 30,
+      "token_id": 700,
+      "token_xy": [
+        28,
+        14
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "unique_texture",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        10,
+        12
+      ],
+      "correct_candidate_raw_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        10,
+        12
+      ],
+      "correct_candidate_verified_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "should_reject": false,
+      "temporal_slot_consistent": false,
+      "confidence": 0.415771484375,
+      "reject_probability": 0.583984375,
+      "sparse_allowed_raw_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8
+      ],
+      "raw_scores": [
+        0.9970703125,
+        0.9970703125,
+        0.99658203125,
+        0.99658203125,
+        0.9951171875,
+        0.9951171875,
+        0.99462890625,
+        0.99365234375,
+        0.9931640625,
+        0.99267578125,
+        0.9921875,
+        0.99169921875,
+        0.99169921875,
+        0.99169921875,
+        0.9912109375,
+        0.9912109375
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          30.5625,
+          14.0
+        ],
+        "last_xy": [
+          24.265625,
+          14.0
+        ],
+        "first_reliability": 0.6533203125,
+        "last_reliability": 0.658203125,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "23_asymmetric_outbound_0060_0120_unique_texture_f030_t0700.png",
+      "note": "Furnace stack is distinctive and represented by all displayed neighbouring candidates.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    },
+    {
+      "run_id": "demo0_v11_d0real",
+      "window_id": "asymmetric_outbound_0060_0120",
+      "frame_id": 30,
+      "token_id": 250,
+      "token_xy": [
+        10,
+        5
+      ],
+      "mode": "FL",
+      "hypothesis": "P5",
+      "category": "sky_low_texture",
+      "first_visible": true,
+      "last_visible": true,
+      "correct_candidate_ranks": [],
+      "correct_candidate_raw_ranks": [],
+      "correct_candidate_verified_ranks": [],
+      "should_reject": true,
+      "temporal_slot_consistent": true,
+      "confidence": 0.144287109375,
+      "reject_probability": 0.85546875,
+      "sparse_allowed_raw_ranks": [],
+      "raw_scores": [
+        0.99951171875,
+        0.99951171875,
+        0.99951171875,
+        0.99951171875,
+        0.99951171875,
+        0.99951171875,
+        0.99951171875,
+        0.99951171875,
+        0.99951171875,
+        0.99951171875,
+        0.99951171875,
+        0.99951171875,
+        0.99951171875,
+        0.99951171875,
+        0.99951171875,
+        0.99951171875
+      ],
+      "auxiliary_track": {
+        "first_xy": [
+          11.9609375,
+          5.0
+        ],
+        "last_xy": [
+          6.0390625,
+          5.00390625
+        ],
+        "first_reliability": 0.0014982223510742188,
+        "last_reliability": 0.00044155120849609375,
+        "warning": "Adjacent-flow composition is only an aid, not ground truth."
+      },
+      "review_sheet": "24_asymmetric_outbound_0060_0120_sky_low_texture_f030_t0250.png",
+      "note": "Uniform sky is visible, but no individual sky token can be verified across viewpoints.",
+      "review_status": "visually_confirmed",
+      "review_basis": "three-pane endpoint inspection at 16 px token resolution"
+    }
+  ],
+  "manual_review_note": "No genuinely neither-endpoint-visible token was confirmed in these short windows. All three proxy-selected examples were reclassified as auxiliary visibility failures.",
+  "coverage_gaps": [
+    "confirmed_neither_endpoint_visible"
+  ]
+}

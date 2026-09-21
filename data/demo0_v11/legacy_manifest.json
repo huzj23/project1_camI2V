@@ -1,0 +1,12 @@
+{
+  "schema_version": "demo0-1.1-legacy-index",
+  "legacy_run": "../demo0/runs/demo0_v1_resnet18_l8_k4",
+  "label": "ResNet/DIS provisional legacy",
+  "status": "failed_baseline",
+  "must_not_be_interpreted_as": [
+    "VACE token result",
+    "diffusion-step result",
+    "validated motion-voting result"
+  ],
+  "preserved": true
+}

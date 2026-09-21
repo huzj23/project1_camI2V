@@ -1,0 +1,189 @@
+{
+  "run_id": "demo0_v1_resnet18_l8_k4",
+  "status": "passed",
+  "interactive_viewer": {
+    "backend": "backend/app.py",
+    "frontend_build": "frontend/dist/index.html",
+    "status": "present"
+  },
+  "clips": [
+    {
+      "clip_id": "simple_translation_perspective",
+      "frame_count": 720,
+      "slot_overlay_png_count": 720,
+      "flow_overlay_png_count": 720,
+      "slot_preview": [
+        720,
+        60.0,
+        512,
+        288
+      ],
+      "flow_preview": [
+        720,
+        60.0,
+        512,
+        288
+      ],
+      "array_shapes": {
+        "topl_index": [
+          720,
+          576,
+          8
+        ],
+        "topl_similarity": [
+          720,
+          576,
+          8
+        ],
+        "topl_weight": [
+          720,
+          576,
+          8
+        ],
+        "slot_assignment": [
+          720,
+          576,
+          8,
+          5
+        ],
+        "reject_prob": [
+          720,
+          576
+        ],
+        "motion_vectors": [
+          720,
+          4,
+          2
+        ],
+        "token_confidence": [
+          720,
+          576
+        ],
+        "slot_id": [
+          720,
+          576
+        ],
+        "slot_prob": [
+          720,
+          576,
+          4
+        ],
+        "pred_ref_xy": [
+          720,
+          576,
+          2
+        ]
+      },
+      "methods": [
+        "B0",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B5_K2",
+        "B5_K4",
+        "B5_K8",
+        "B5_L16",
+        "B5_L4",
+        "B5_L8",
+        "B5_hard_top1",
+        "B5_no_reject",
+        "B5_no_spatial",
+        "B5_posthoc_only"
+      ],
+      "metric_status": "provisional",
+      "static_query_heatmap_count": 3,
+      "status": "passed"
+    },
+    {
+      "clip_id": "asymmetric_building_translation",
+      "frame_count": 882,
+      "slot_overlay_png_count": 882,
+      "flow_overlay_png_count": 882,
+      "slot_preview": [
+        882,
+        60.0,
+        512,
+        288
+      ],
+      "flow_preview": [
+        882,
+        60.0,
+        512,
+        288
+      ],
+      "array_shapes": {
+        "topl_index": [
+          882,
+          576,
+          8
+        ],
+        "topl_similarity": [
+          882,
+          576,
+          8
+        ],
+        "topl_weight": [
+          882,
+          576,
+          8
+        ],
+        "slot_assignment": [
+          882,
+          576,
+          8,
+          5
+        ],
+        "reject_prob": [
+          882,
+          576
+        ],
+        "motion_vectors": [
+          882,
+          4,
+          2
+        ],
+        "token_confidence": [
+          882,
+          576
+        ],
+        "slot_id": [
+          882,
+          576
+        ],
+        "slot_prob": [
+          882,
+          576,
+          4
+        ],
+        "pred_ref_xy": [
+          882,
+          576,
+          2
+        ]
+      },
+      "methods": [
+        "B0",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B5_K2",
+        "B5_K4",
+        "B5_K8",
+        "B5_L16",
+        "B5_L4",
+        "B5_L8",
+        "B5_hard_top1",
+        "B5_no_reject",
+        "B5_no_spatial",
+        "B5_posthoc_only"
+      ],
+      "metric_status": "provisional",
+      "static_query_heatmap_count": 3,
+      "status": "passed"
+    }
+  ]
+}

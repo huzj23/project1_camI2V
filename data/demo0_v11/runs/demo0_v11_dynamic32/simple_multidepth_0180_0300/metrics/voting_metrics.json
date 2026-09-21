@@ -1,0 +1,29 @@
+{
+  "status": "auxiliary_provisional",
+  "methods": {
+    "FL_P5": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": true,
+        "use_rejection": true,
+        "use_sparse_value_mask": true
+      },
+      "verified": {
+        "valid_queries": 79618,
+        "Hit@1": 0.7309025597226758,
+        "Hit@8": 0.9147680172825241,
+        "Hit@16": 0.967406867793715,
+        "MRR": 0.7901300415207446
+      },
+      "accepted_fraction": 0.36226533006836037,
+      "mean_confidence": 0.1689559519290924,
+      "mean_value_candidates": 1.351526629935721,
+      "sparse_fraction_of_reference_bank": 0.0005214223109319911,
+      "mean_correct_candidate_weight": 0.5260857939720154,
+      "delta_correct_weight_vs_P0": 0.23276753723621368,
+      "sparse_correct_candidate_coverage": 0.5037051922932,
+      "reject_precision_recall": "pending frozen manual annotations"
+    }
+  }
+}

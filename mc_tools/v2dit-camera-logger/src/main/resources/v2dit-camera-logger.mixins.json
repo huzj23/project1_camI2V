@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "io.v2dit.camera.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "FlashbackExportJobMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
+

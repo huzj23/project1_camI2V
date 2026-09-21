@@ -1,0 +1,5 @@
+{
+  "allowed_slot_capacities": [32, 128, 1024],
+  "default_slot_capacity": 32,
+  "note": "Change voting.slot_capacity and use a new run_id before inference. The sparse slot storage does not scale candidate arrays with capacity."
+}

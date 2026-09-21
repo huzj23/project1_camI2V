@@ -1,0 +1,7 @@
+{
+  "extends": "dynamic_config_32.json",
+  "run_id": "demo0_v11_dynamic1024",
+  "voting": {
+    "slot_capacity": 1024
+  }
+}

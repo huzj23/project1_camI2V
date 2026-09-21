@@ -1,0 +1,23 @@
+{
+  "method": "P3",
+  "hypothesis": "H1",
+  "use_spatial": true,
+  "use_temporal": false,
+  "use_rejection": false,
+  "use_sparse_value_mask": false,
+  "candidate_source": "P0 dense_multiscale_rootsift_rgb_v1 Top-16",
+  "primary_candidate_count": 8,
+  "effective_vote_config": {
+    "slot_count": 6,
+    "em_iterations": 10,
+    "residual_temperature": 0.75,
+    "motion_logit_weight": 0.9,
+    "spatial_logit_weight": 0.55,
+    "temporal_logit_weight": 0.0,
+    "slot_prior_weight": 0.1,
+    "parameter_smoothing": 0.0,
+    "minimum_sparse_weight": 0.035,
+    "minimum_query_texture": 0.08,
+    "reject_confidence_threshold": 0.18
+  }
+}

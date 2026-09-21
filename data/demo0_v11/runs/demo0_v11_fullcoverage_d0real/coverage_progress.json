@@ -1,0 +1,24 @@
+{
+  "schema_version": "demo0-v1.1-fullcoverage-progress",
+  "run_id": "demo0_v11_fullcoverage_d0real",
+  "total_new_windows": 14,
+  "completed_new_windows": 14,
+  "active_window": null,
+  "window_status": {
+    "simple_startup_0000_0060": "complete_d0_real",
+    "simple_outbound_0060_0180": "complete_d0_real",
+    "simple_outbound_0300_0360": "complete_d0_real",
+    "simple_outbound_0480_0600": "complete_d0_real",
+    "simple_outbound_0600_0719": "complete_d0_real",
+    "asymmetric_startup_0000_0060": "complete_d0_real",
+    "asymmetric_outbound_0120_0240": "complete_d0_real",
+    "asymmetric_outbound_0240_0360": "complete_d0_real",
+    "asymmetric_outbound_0360_0410": "complete_d0_real",
+    "asymmetric_return_0410_0530": "complete_d0_real",
+    "asymmetric_return_0530_0650": "complete_d0_real",
+    "asymmetric_return_0650_0770": "complete_d0_real",
+    "asymmetric_return_0770_0800": "complete_d0_real",
+    "asymmetric_final_outbound_0800_0881": "complete_d0_real"
+  },
+  "updated_at_unix": 1789485944.522497
+}

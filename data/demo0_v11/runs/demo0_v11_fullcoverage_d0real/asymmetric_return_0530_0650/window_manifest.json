@@ -1,0 +1,39 @@
+{
+  "schema_version": "demo0-1.1-d0-real",
+  "window_id": "asymmetric_return_0530_0650",
+  "display_name": "非对称建筑 · return · 530–650",
+  "category": "translation",
+  "status": "complete_d0_real",
+  "source": {
+    "video": "C:\\Users\\12447\\Desktop\\plan\\ShortTerm_WeeksCounted\\project4_CAMI2V\\data\\非对称建筑平动.mp4",
+    "camera_csv": "C:\\Users\\12447\\Desktop\\plan\\ShortTerm_WeeksCounted\\project4_CAMI2V\\data\\非对称建筑平动.camera.csv",
+    "metadata": "C:\\Users\\12447\\Desktop\\plan\\ShortTerm_WeeksCounted\\project4_CAMI2V\\data\\非对称建筑平动.camera.metadata.json",
+    "source_start_frame": 530,
+    "source_end_frame": 650,
+    "configured_source_end_frame": 650,
+    "video_sha256": "475e95fb24b89991f52a3da18aab073bf0b5536c3b8151cd989b38aab2e7c513",
+    "camera_csv_sha256": "01a45ad6a5327e2686909f06dd07bdb4537b381669f278e6c9eb0238465c7ef2"
+  },
+  "window_video": "C:\\Users\\12447\\Desktop\\plan\\ShortTerm_WeeksCounted\\project4_CAMI2V\\data\\demo0_v11\\runs\\demo0_v11_fullcoverage_d0real\\asymmetric_return_0530_0650\\window.mp4",
+  "window_video_sha256": "db9cf32deb2389661b8c4f207cc505e1d7819657a8f5c65f19edcc8cee1cfc7d",
+  "frame_count": 121,
+  "fps": 60.0,
+  "resolution": [
+    768,
+    432
+  ],
+  "reference_frames": {
+    "first": 0,
+    "last": 120
+  },
+  "contact_sheet": "contact_sheet.jpg",
+  "matching_geometry": "camera trajectory is recorded but not used for candidate scoring",
+  "token_grid": {
+    "height": 27,
+    "width": 48,
+    "count": 1296,
+    "stride": 16
+  },
+  "descriptor_dim": 265,
+  "metric_status": "auxiliary_provisional_pending_manual_annotations"
+}

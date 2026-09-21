@@ -1,0 +1,6 @@
+{
+  "schema_version": "demo0-1.1-manual-annotations",
+  "frozen": false,
+  "queries": [],
+  "instructions": "Record endpoint visibility, correct candidate ranks/regions, rejection and temporal slot judgement."
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "demo0-1.1-d0-real",
+  "seed": 20260915,
+  "run_id": "demo0_v11_d0real",
+  "input_root": "..",
+  "output_root": "runs",
+  "processing": {
+    "width": 768,
+    "height": 432,
+    "token_stride": 16,
+    "descriptor": "dense_multiscale_rootsift_rgb_v1",
+    "descriptor_patch_sizes": [24, 40],
+    "top_l_max": 16,
+    "top_l_primary": 8,
+    "candidate_temperature": 0.012,
+    "batch_frames": 8
+  },
+  "windows": [
+    {
+      "window_id": "simple_multidepth_0180_0300",
+      "display_name": "简单平动 · 多深度短窗",
+      "category": "simple_multidepth",
+      "video": "简单平动透视关系.mp4",
+      "camera_csv": "简单平动透视关系.camera.csv",
+      "metadata": "简单平动透视关系.camera.metadata.json",
+      "source_start_frame": 180,
+      "source_end_frame": 300
+    },
+    {
+      "window_id": "simple_occlusion_0360_0480",
+      "display_name": "简单平动 · 树干遮挡短窗",
+      "category": "occlusion",
+      "video": "简单平动透视关系.mp4",
+      "camera_csv": "简单平动透视关系.camera.csv",
+      "metadata": "简单平动透视关系.camera.metadata.json",
+      "source_start_frame": 360,
+      "source_end_frame": 480
+    },
+    {
+      "window_id": "asymmetric_outbound_0060_0120",
+      "display_name": "非对称建筑 · 单向短窗",
+      "category": "asymmetric_multidepth",
+      "video": "非对称建筑平动.mp4",
+      "camera_csv": "非对称建筑平动.camera.csv",
+      "metadata": "非对称建筑平动.camera.metadata.json",
+      "source_start_frame": 60,
+      "source_end_frame": 120
+    }
+  ],
+  "reference_modes": ["F", "FL"],
+  "hypotheses": ["H0", "H1"],
+  "ablation_methods": {
+    "P1": {
+      "hypothesis": "H0",
+      "use_spatial": false,
+      "use_temporal": false,
+      "use_rejection": false,
+      "use_sparse_value_mask": false
+    },
+    "P2": {
+      "hypothesis": "H1",
+      "use_spatial": false,
+      "use_temporal": false,
+      "use_rejection": false,
+      "use_sparse_value_mask": false
+    },
+    "P3": {
+      "hypothesis": "H1",
+      "use_spatial": true,
+      "use_temporal": false,
+      "use_rejection": false,
+      "use_sparse_value_mask": false
+    },
+    "P4": {
+      "hypothesis": "H1",
+      "use_spatial": true,
+      "use_temporal": true,
+      "use_rejection": false,
+      "use_sparse_value_mask": false
+    },
+    "P5": {
+      "hypothesis": "H1",
+      "use_spatial": true,
+      "use_temporal": true,
+      "use_rejection": true,
+      "use_sparse_value_mask": true
+    }
+  },
+  "voting": {
+    "slot_count": 6,
+    "em_iterations": 10,
+    "residual_temperature": 0.75,
+    "motion_logit_weight": 0.9,
+    "spatial_logit_weight": 0.55,
+    "temporal_logit_weight": 0.20,
+    "slot_prior_weight": 0.10,
+    "parameter_smoothing": 0.25,
+    "minimum_sparse_weight": 0.035,
+    "minimum_query_texture": 0.08,
+    "reject_confidence_threshold": 0.18
+  },
+  "visualization": {
+    "fps": 60.0,
+    "overlay_alpha": 0.48,
+    "slot_display_power": 2.4,
+    "write_png_sequences": true,
+    "write_mp4_previews": true
+  },
+  "execution_scope": {
+    "mode": "D0-Real",
+    "vace_checkpoint_used": false,
+    "camera_geometry_used_for_matching": false,
+    "long_baseline_dis_used_as_label": false,
+    "adjacent_flow_role": "disclosed temporal continuity signal only"
+  }
+}

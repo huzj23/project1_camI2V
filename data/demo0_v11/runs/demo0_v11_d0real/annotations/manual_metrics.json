@@ -1,0 +1,96 @@
+{
+  "schema_version": "demo0-1.1-manual-metrics",
+  "scope": "D0-Real, FL reference bank, P0 versus P5 on 24 visually audited queries",
+  "warning": "Small diagnostic set; repeated textures are judged at 16 px token resolution and are not statistical ground truth.",
+  "coverage_gaps": [
+    "confirmed_neither_endpoint_visible"
+  ],
+  "overall": {
+    "query_count": 24,
+    "matchable_query_count": 19,
+    "should_reject_count": 5,
+    "P0_raw": {
+      "MRR": 0.8526315789473684,
+      "Hit@1": 0.7894736842105263,
+      "Hit@8": 1.0,
+      "Hit@16": 1.0
+    },
+    "P5_verified": {
+      "MRR": 0.9122807017543859,
+      "Hit@1": 0.8421052631578947,
+      "Hit@8": 1.0,
+      "mean_correct_candidate_weight": 0.7194259794134843,
+      "reject_accuracy": 0.9166666666666666,
+      "false_accept_token_ids": [
+        541,
+        492
+      ],
+      "false_reject_token_ids": []
+    }
+  },
+  "by_window": {
+    "asymmetric_outbound_0060_0120": {
+      "query_count": 8,
+      "matchable_query_count": 7,
+      "should_reject_count": 1,
+      "P0_raw": {
+        "MRR": 0.9285714285714286,
+        "Hit@1": 0.8571428571428571,
+        "Hit@8": 1.0,
+        "Hit@16": 1.0
+      },
+      "P5_verified": {
+        "MRR": 0.9285714285714286,
+        "Hit@1": 0.8571428571428571,
+        "Hit@8": 1.0,
+        "mean_correct_candidate_weight": 0.7299150739397321,
+        "reject_accuracy": 1.0,
+        "false_accept_token_ids": [],
+        "false_reject_token_ids": []
+      }
+    },
+    "simple_multidepth_0180_0300": {
+      "query_count": 8,
+      "matchable_query_count": 7,
+      "should_reject_count": 1,
+      "P0_raw": {
+        "MRR": 0.8857142857142858,
+        "Hit@1": 0.8571428571428571,
+        "Hit@8": 1.0,
+        "Hit@16": 1.0
+      },
+      "P5_verified": {
+        "MRR": 0.9047619047619048,
+        "Hit@1": 0.8571428571428571,
+        "Hit@8": 1.0,
+        "mean_correct_candidate_weight": 0.7459383692060199,
+        "reject_accuracy": 1.0,
+        "false_accept_token_ids": [],
+        "false_reject_token_ids": []
+      }
+    },
+    "simple_occlusion_0360_0480": {
+      "query_count": 8,
+      "matchable_query_count": 5,
+      "should_reject_count": 3,
+      "P0_raw": {
+        "MRR": 0.7,
+        "Hit@1": 0.6,
+        "Hit@8": 1.0,
+        "Hit@16": 1.0
+      },
+      "P5_verified": {
+        "MRR": 0.9,
+        "Hit@1": 0.8,
+        "Hit@8": 1.0,
+        "mean_correct_candidate_weight": 0.6676239013671875,
+        "reject_accuracy": 0.75,
+        "false_accept_token_ids": [
+          541,
+          492
+        ],
+        "false_reject_token_ids": []
+      }
+    }
+  }
+}

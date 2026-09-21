@@ -1,0 +1,153 @@
+[
+  {
+    "frame_id": 0,
+    "type": "birth",
+    "slot_id": 0
+  },
+  {
+    "frame_id": 8,
+    "type": "split",
+    "slot_id": 1,
+    "parent_slot_id": 0
+  },
+  {
+    "frame_id": 13,
+    "type": "birth",
+    "slot_id": 2
+  },
+  {
+    "frame_id": 26,
+    "type": "disappearance",
+    "slot_id": 1
+  },
+  {
+    "frame_id": 29,
+    "type": "termination",
+    "slot_id": 1
+  },
+  {
+    "frame_id": 45,
+    "type": "birth",
+    "slot_id": 1
+  },
+  {
+    "frame_id": 50,
+    "type": "disappearance",
+    "slot_id": 0
+  },
+  {
+    "frame_id": 53,
+    "type": "birth",
+    "slot_id": 3
+  },
+  {
+    "frame_id": 53,
+    "type": "termination",
+    "slot_id": 0
+  },
+  {
+    "frame_id": 54,
+    "type": "split",
+    "slot_id": 0,
+    "parent_slot_id": 2
+  },
+  {
+    "frame_id": 57,
+    "type": "split",
+    "slot_id": 4,
+    "parent_slot_id": 3
+  },
+  {
+    "frame_id": 57,
+    "type": "disappearance",
+    "slot_id": 1
+  },
+  {
+    "frame_id": 60,
+    "type": "termination",
+    "slot_id": 1
+  },
+  {
+    "frame_id": 72,
+    "type": "disappearance",
+    "slot_id": 2
+  },
+  {
+    "frame_id": 75,
+    "type": "reappearance",
+    "slot_id": 2,
+    "missing_frames": 3
+  },
+  {
+    "frame_id": 79,
+    "type": "disappearance",
+    "slot_id": 3
+  },
+  {
+    "frame_id": 82,
+    "type": "termination",
+    "slot_id": 3
+  },
+  {
+    "frame_id": 98,
+    "type": "birth",
+    "slot_id": 1
+  },
+  {
+    "frame_id": 99,
+    "type": "disappearance",
+    "slot_id": 4
+  },
+  {
+    "frame_id": 102,
+    "type": "termination",
+    "slot_id": 4
+  },
+  {
+    "frame_id": 109,
+    "type": "disappearance",
+    "slot_id": 0
+  },
+  {
+    "frame_id": 112,
+    "type": "termination",
+    "slot_id": 0
+  },
+  {
+    "frame_id": 114,
+    "type": "split",
+    "slot_id": 0,
+    "parent_slot_id": 1
+  },
+  {
+    "frame_id": 114,
+    "type": "disappearance",
+    "slot_id": 1
+  },
+  {
+    "frame_id": 114,
+    "type": "disappearance",
+    "slot_id": 2
+  },
+  {
+    "frame_id": 115,
+    "type": "reappearance",
+    "slot_id": 1,
+    "missing_frames": 1
+  },
+  {
+    "frame_id": 115,
+    "type": "disappearance",
+    "slot_id": 0
+  },
+  {
+    "frame_id": 117,
+    "type": "termination",
+    "slot_id": 2
+  },
+  {
+    "frame_id": 118,
+    "type": "termination",
+    "slot_id": 0
+  }
+]

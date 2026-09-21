@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "session_id": "20260914-194915-flashback_export",
+  "mode": "flashback_export",
+  "csv": "2026-09-14T19_49_12.camera.csv",
+  "coordinate_system": {
+    "world": "Minecraft: +X east, +Y up, +Z south",
+    "camera_to_world_columns": "right, up, back, position",
+    "view_direction": "-back",
+    "rotation_authority": "quaternion and basis vectors; yaw/pitch are convenience fields"
+  },
+  "flashback_export": {
+    "name": "",
+    "output": "C:\\Users\\12447\\Desktop\\plan\\ShortTerm_WeeksCounted\\project4_CAMI2V\\data\\2026-09-14T19_49_12.mp4",
+    "fps": 60.0,
+    "width": 1280,
+    "height": 720,
+    "start_tick": 0,
+    "end_tick": 340,
+    "projection": "PERSPECTIVE",
+    "depth_map": false,
+    "ssaa": false
+  },
+  "video": "2026-09-14T19_49_12.mp4",
+  "alignment": {
+    "status": "verified",
+    "method": "drop_60_leading_flashback_0.43.3_warmup_renders",
+    "raw_csv": "D:\\Mc\\.minecraft\\versions\\26.1.2-V2DiT-Data\\v2dit_capture\\trajectory\\20260914-194915-flashback_export.csv",
+    "raw_rows": 1080,
+    "dropped_leading_rows": 60,
+    "video_frame_count": 1020,
+    "aligned_csv_rows": 1020,
+    "video_duration_seconds": 17.0,
+    "first_aligned_raw_frame_index": 60,
+    "note": "Flashback 0.43.3 performs a forced 60-render warm-up before encoding; logger 0.1.1 observed those renders."
+  }
+}

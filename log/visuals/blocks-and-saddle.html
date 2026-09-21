@@ -1,0 +1,125 @@
+<div id="cr-geometry-explainer">
+  <style>
+    #cr-geometry-explainer { color: var(--foreground); }
+    #cr-geometry-explainer .cr-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    #cr-geometry-explainer .cr-turn { flex: 1 1 210px; }
+    #cr-geometry-explainer svg { display: block; width: 100%; touch-action: pan-y; }
+    #cr-geometry-explainer .cr-legend { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    #cr-geometry-explainer .cr-swatch { display: inline-block; width: 20px; margin-right: 6px; border-top: 3px solid currentColor; vertical-align: middle; }
+    #cr-geometry-explainer .cr-label { fill: var(--foreground); font-size: 12px; }
+  </style>
+  <div class="cr-controls">
+    <label class="form-label">几何体
+      <select class="form-select" id="cr-shape">
+        <option value="blocks">不同高度的四边形楼块</option>
+        <option value="saddle">鞍形：两组直线交织</option>
+      </select>
+    </label>
+    <label class="form-label cr-turn">观察角度 <output id="cr-angle-value">35°</output>
+      <input class="form-range" id="cr-angle" type="range" min="0" max="360" step="1" value="35" aria-label="旋转几何体的观察角度">
+    </label>
+  </div>
+  <svg id="cr-scene" role="img" aria-labelledby="cr-scene-title cr-scene-desc">
+    <title id="cr-scene-title">楼块与鞍形中的三维直线</title>
+    <desc id="cr-scene-desc">楼块中高亮一条有六个固定标记点的立面直线。切换到鞍形后，两组不同方向的直线交织成弯曲表面；其中一条直线同样有六点。</desc>
+    <g id="cr-scene-marks"></g>
+  </svg>
+  <div class="cr-legend text-small" id="cr-legend"></div>
+</div>
+<script>
+(() => {
+  const root = document.getElementById('cr-geometry-explainer');
+  const svg = root.querySelector('#cr-scene');
+  const marks = root.querySelector('#cr-scene-marks');
+  const shape = root.querySelector('#cr-shape');
+  const angle = root.querySelector('#cr-angle');
+  const value = root.querySelector('#cr-angle-value');
+  const legend = root.querySelector('#cr-legend');
+  const ns = 'http://www.w3.org/2000/svg';
+  const lo = -1.55;
+  const hi = 1.55;
+  function node(tag, attributes, text) {
+    const n = document.createElementNS(ns, tag);
+    Object.entries(attributes).forEach(([k, v]) => n.setAttribute(k, v));
+    if (text !== undefined) n.textContent = text;
+    return n;
+  }
+  function render() {
+    const w = Math.max(300, root.clientWidth || 700);
+    const h = w < 460 ? 325 : 365;
+    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+    svg.setAttribute('height', h);
+    marks.replaceChildren();
+    const az = Number(angle.value) * Math.PI / 180;
+    const elev = 0.55;
+    const raw = p => {
+      const a = Math.cos(az) * p[0] - Math.sin(az) * p[1];
+      const b = Math.sin(az) * p[0] + Math.cos(az) * p[1];
+      return [a, Math.sin(elev) * b - Math.cos(elev) * p[2], Math.cos(elev) * b + Math.sin(elev) * p[2]];
+    };
+    const segments = [];
+    const faces = [];
+    let selected;
+    let all = [];
+    if (shape.value === 'saddle') {
+      for (let j = 0; j <= 8; j++) {
+        const c = lo + (hi - lo) * j / 8;
+        segments.push({pts: [[lo, c, .52 * lo * c], [hi, c, .52 * hi * c]], family: 1});
+        segments.push({pts: [[c, lo, .52 * c * lo], [c, hi, .52 * c * hi]], family: 2});
+      }
+      selected = [[lo, .775, .52 * lo * .775], [hi, .775, .52 * hi * .775]];
+      all = segments.flatMap(s => s.pts);
+      legend.innerHTML = '<span><span class="cr-swatch" style="color:var(--viz-series-1)"></span>第一组直线</span><span><span class="cr-swatch" style="color:var(--viz-series-2)"></span>第二组直线</span><span><span class="cr-swatch" style="color:var(--viz-series-3)"></span>同一条线的六个固定点</span>';
+    } else {
+      const heights = [[.60, 1.45, .90], [1.85, 1.10, 1.55], [.75, 2.00, 1.05]];
+      function grid(i,j) { return [i - 1.5 + .13 * (j - 1.5) + .026*i*j, j - 1.5 + .065*(i-1.5)*(j-1.5)]; }
+      for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) {
+        const corners = [grid(i,j), grid(i+1,j), grid(i+1,j+1), grid(i,j+1)];
+        const cx = corners.reduce((s,p)=>s+p[0],0)/4;
+        const cy = corners.reduce((s,p)=>s+p[1],0)/4;
+        const top = corners.map(p=>[cx+.87*(p[0]-cx),cy+.87*(p[1]-cy),heights[i][j]]);
+        const bottom = top.map(p=>[p[0],p[1],0]);
+        faces.push({pts:top,tone:(i+j)%2});
+        for (let k=0;k<4;k++) {
+          const l=(k+1)%4;
+          faces.push({pts:[bottom[k],bottom[l],top[l],top[k]],tone:(i+j)%2});
+        }
+        all.push(...top,...bottom);
+        if(i===1 && j===2) {
+          const a=bottom[2], b=top[2];
+          selected=[a,b];
+        }
+      }
+      legend.innerHTML = '<span><span class="cr-swatch" style="color:var(--viz-series-3)"></span>同一楼体的直边与六点（透视高亮示意）</span>';
+    }
+    const projected=all.map(raw);
+    const x0=Math.min(...projected.map(p=>p[0])), x1=Math.max(...projected.map(p=>p[0]));
+    const y0=Math.min(...projected.map(p=>p[1])), y1=Math.max(...projected.map(p=>p[1]));
+    const scale=Math.min((w-80)/(x1-x0),(h-70)/(y1-y0));
+    const screen=p=>{const q=raw(p);return [(q[0]-(x0+x1)/2)*scale+w/2,(q[1]-(y0+y1)/2)*scale+h/2,q[2]];};
+    const path=ps=>ps.map((p,i)=>{const q=screen(p);return (i?'L':'M')+q[0].toFixed(2)+','+q[1].toFixed(2);}).join(' ');
+    faces.sort((a,b)=>a.pts.reduce((s,p)=>s+raw(p)[2],0)/4-b.pts.reduce((s,p)=>s+raw(p)[2],0)/4).forEach(f=>{
+      marks.appendChild(node('path',{d:path(f.pts)+'Z',fill:f.tone?'var(--muted)':'var(--card)',stroke:'var(--foreground)','stroke-opacity':'.45','stroke-width':'1'}));
+    });
+    segments.sort((a,b)=>raw(a.pts[0])[2]+raw(a.pts[1])[2]-raw(b.pts[0])[2]-raw(b.pts[1])[2]).forEach(s=>{
+      marks.appendChild(node('path',{d:path(s.pts),fill:'none',stroke:'var(--viz-series-'+s.family+')','stroke-width':'1.5','stroke-opacity':'.80'}));
+    });
+    marks.appendChild(node('path',{d:path(selected),fill:'none',stroke:'var(--viz-series-3)','stroke-width':'3.5'}));
+    const labelX=screen(selected[1])[0] > w/2 ? -12 : 12;
+    const ratios=[.07,.23,.40,.59,.77,.94];
+    const end0=screen(selected[0]), end1=screen(selected[1]);
+    const shortLine=Math.hypot(end1[0]-end0[0],end1[1]-end0[1]) < 125;
+    ratios.forEach((t,i)=>{
+      const p=selected[0].map((v,k)=>v+(selected[1][k]-v)*t);
+      const q=screen(p);
+      marks.appendChild(node('circle',{cx:q[0],cy:q[1],r:'4.2',fill:'var(--viz-series-3)',stroke:'var(--background)','stroke-width':'1.4'}));
+      if(!shortLine || i===0 || i===5) marks.appendChild(node('text',{x:q[0]+labelX,y:q[1]+4,class:'cr-label','text-anchor':labelX<0?'end':'start'},'P'+(i+1)));
+    });
+    value.textContent=angle.value+'°';
+  }
+  shape.addEventListener('change',render);
+  angle.addEventListener('input',render);
+  new ResizeObserver(render).observe(root);
+  render();
+})();
+</script>

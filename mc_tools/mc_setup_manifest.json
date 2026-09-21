@@ -1,0 +1,32 @@
+{
+  "configured_at": "2026-09-14",
+  "launcher": "D:\\Mc\\HMCL-3.16.3.exe",
+  "game_root": "D:\\Mc\\.minecraft",
+  "source_instance": "26.1.2",
+  "capture_instance": "26.1.2-V2DiT-Data",
+  "isolation": true,
+  "components": {
+    "minecraft": "26.1.2",
+    "java": "25",
+    "fabric_loader": "0.19.5",
+    "fabric_api": "0.155.3+26.1.2",
+    "flashback": "0.43.3",
+    "v2dit_camera_logger": "0.1.2"
+  },
+  "sha256": {
+    "fabric-api-0.155.3+26.1.2.jar": "7FE7BEA3DBB7B2E9FF998AB583130CD62FAB22AB8A5229656FF14B2E648C91DD",
+    "Flashback-0.43.3-for-MC26.1.jar": "DF06C9F20E7C5BB234753810DECF90C8E747FD9DC60DC527729E6C46996E7B13",
+    "v2dit-camera-logger-0.1.2.jar": "0F78FAC00143DDD133C4CDFD846152405A19AC158364C6CD1886776BA56EAB54",
+    "26.1.2-V2DiT-Data.json": "B2BD5F93B48336971E5291C59FA9EC84A532AACF6E0D3DCECB31F91C0AECE477"
+  },
+  "runtime_validation": {
+    "result": "passed_to_main_menu",
+    "loaded_together": [
+      "fabric-api",
+      "flashback",
+      "v2dit_camera_logger"
+    ],
+    "mixin_or_injection_errors": 0,
+    "note": "0.1.2 records frames when Flashback submits them for download, excluding Flashback 0.43.3's 60 unencoded warm-up renders. Build and unit tests passed; runtime frame-count validation is pending the next export."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "demo0-1.0",
+  "slot_palette_rgb": {
+    "0": [
+      230,
+      57,
+      70
+    ],
+    "1": [
+      46,
+      196,
+      182
+    ],
+    "2": [
+      69,
+      123,
+      255
+    ],
+    "3": [
+      255,
+      183,
+      3
+    ],
+    "4": [
+      131,
+      56,
+      236
+    ],
+    "5": [
+      0,
+      168,
+      107
+    ],
+    "6": [
+      247,
+      127,
+      0
+    ],
+    "7": [
+      255,
+      99,
+      164
+    ]
+  },
+  "rejected_rgb": [
+    35,
+    35,
+    35
+  ],
+  "slot_overlay": "Discrete, Hungarian-stabilized slot colors.",
+  "flow_overlay": "Hue encodes direction; brightness encodes motion magnitude.",
+  "motion_vector_convention": "query_xy - reference_xy in token units",
+  "first_frame": "reference / zero displacement"
+}

@@ -1,0 +1,245 @@
+{
+  "status": "auxiliary_provisional",
+  "methods": {
+    "F_P1": {
+      "method_spec": {
+        "hypothesis": "H0",
+        "use_spatial": false,
+        "use_temporal": false,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "verified": {
+        "valid_queries": 46225,
+        "Hit@1": 0.8888912925905895,
+        "Hit@8": 0.9743428880475933,
+        "Hit@16": 0.978085451595457,
+        "MRR": 0.9253463718542139
+      },
+      "accepted_fraction": 1.0,
+      "mean_confidence": 0.28372615575790405,
+      "mean_value_candidates": 16.0,
+      "sparse_fraction_of_reference_bank": 0.012345679012345678,
+      "mean_correct_candidate_weight": 0.5760270953178406,
+      "delta_correct_weight_vs_P0": 0.1555059403181076,
+      "sparse_correct_candidate_coverage": 0.978085451595457,
+      "reject_precision_recall": "pending frozen manual annotations"
+    },
+    "F_P2": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": false,
+        "use_temporal": false,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "verified": {
+        "valid_queries": 46225,
+        "Hit@1": 0.8621957815035154,
+        "Hit@8": 0.9750567874526771,
+        "Hit@16": 0.978085451595457,
+        "MRR": 0.9107302960845415
+      },
+      "accepted_fraction": 1.0,
+      "mean_confidence": 0.2841479778289795,
+      "mean_value_candidates": 16.0,
+      "sparse_fraction_of_reference_bank": 0.012345679012345678,
+      "mean_correct_candidate_weight": 0.5725744366645813,
+      "delta_correct_weight_vs_P0": 0.1520533263683319,
+      "sparse_correct_candidate_coverage": 0.978085451595457,
+      "reject_precision_recall": "pending frozen manual annotations"
+    },
+    "F_P3": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": false,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "verified": {
+        "valid_queries": 46225,
+        "Hit@1": 0.8596214169821526,
+        "Hit@8": 0.9749269875608437,
+        "Hit@16": 0.978085451595457,
+        "MRR": 0.9098387100850596
+      },
+      "accepted_fraction": 1.0,
+      "mean_confidence": 0.2865174412727356,
+      "mean_value_candidates": 16.0,
+      "sparse_fraction_of_reference_bank": 0.012345679012345678,
+      "mean_correct_candidate_weight": 0.5855761766433716,
+      "delta_correct_weight_vs_P0": 0.165055051445961,
+      "sparse_correct_candidate_coverage": 0.978085451595457,
+      "reject_precision_recall": "pending frozen manual annotations"
+    },
+    "F_P4": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": true,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "verified": {
+        "valid_queries": 46225,
+        "Hit@1": 0.8319740400216333,
+        "Hit@8": 0.9751216873985938,
+        "Hit@16": 0.978085451595457,
+        "MRR": 0.8902262949777823
+      },
+      "accepted_fraction": 1.0,
+      "mean_confidence": 0.2929145097732544,
+      "mean_value_candidates": 16.0,
+      "sparse_fraction_of_reference_bank": 0.012345679012345678,
+      "mean_correct_candidate_weight": 0.5662241578102112,
+      "delta_correct_weight_vs_P0": 0.1457030177116394,
+      "sparse_correct_candidate_coverage": 0.978085451595457,
+      "reject_precision_recall": "pending frozen manual annotations"
+    },
+    "F_P5": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": true,
+        "use_rejection": true,
+        "use_sparse_value_mask": true
+      },
+      "verified": {
+        "valid_queries": 46225,
+        "Hit@1": 0.8319740400216333,
+        "Hit@8": 0.9751216873985938,
+        "Hit@16": 0.978085451595457,
+        "MRR": 0.8902262949777823
+      },
+      "accepted_fraction": 0.6160443230115361,
+      "mean_confidence": 0.2929145097732544,
+      "mean_value_candidates": 2.880907205019227,
+      "sparse_fraction_of_reference_bank": 0.0022229222260950828,
+      "mean_correct_candidate_weight": 0.5662241578102112,
+      "delta_correct_weight_vs_P0": 0.1457030177116394,
+      "sparse_correct_candidate_coverage": 0.9124283396430503,
+      "reject_precision_recall": "pending frozen manual annotations"
+    },
+    "FL_P1": {
+      "method_spec": {
+        "hypothesis": "H0",
+        "use_spatial": false,
+        "use_temporal": false,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "verified": {
+        "valid_queries": 48833,
+        "Hit@1": 0.9930579730919665,
+        "Hit@8": 0.9998156984006716,
+        "Hit@16": 0.9999795220445191,
+        "MRR": 0.9958373354734422
+      },
+      "accepted_fraction": 1.0,
+      "mean_confidence": 0.30671173334121704,
+      "mean_value_candidates": 16.0,
+      "sparse_fraction_of_reference_bank": 0.006172839506172839,
+      "mean_correct_candidate_weight": 0.7949721217155457,
+      "delta_correct_weight_vs_P0": 0.20776495337486267,
+      "sparse_correct_candidate_coverage": 0.9999795220445191,
+      "reject_precision_recall": "pending frozen manual annotations"
+    },
+    "FL_P2": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": false,
+        "use_temporal": false,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "verified": {
+        "valid_queries": 48833,
+        "Hit@1": 0.993467532201585,
+        "Hit@8": 0.9998156984006716,
+        "Hit@16": 0.9999795220445191,
+        "MRR": 0.9961314135412593
+      },
+      "accepted_fraction": 1.0,
+      "mean_confidence": 0.30809980630874634,
+      "mean_value_candidates": 16.0,
+      "sparse_fraction_of_reference_bank": 0.006172839506172839,
+      "mean_correct_candidate_weight": 0.7944135069847107,
+      "delta_correct_weight_vs_P0": 0.20720630884170532,
+      "sparse_correct_candidate_coverage": 0.9999795220445191,
+      "reject_precision_recall": "pending frozen manual annotations"
+    },
+    "FL_P3": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": false,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "verified": {
+        "valid_queries": 48833,
+        "Hit@1": 0.9876313148895214,
+        "Hit@8": 0.9998976102225954,
+        "Hit@16": 0.9999795220445191,
+        "MRR": 0.9931078515406737
+      },
+      "accepted_fraction": 1.0,
+      "mean_confidence": 0.3141544461250305,
+      "mean_value_candidates": 16.0,
+      "sparse_fraction_of_reference_bank": 0.006172839506172839,
+      "mean_correct_candidate_weight": 0.8119328618049622,
+      "delta_correct_weight_vs_P0": 0.22472572326660156,
+      "sparse_correct_candidate_coverage": 0.9999795220445191,
+      "reject_precision_recall": "pending frozen manual annotations"
+    },
+    "FL_P4": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": true,
+        "use_rejection": false,
+        "use_sparse_value_mask": false
+      },
+      "verified": {
+        "valid_queries": 48833,
+        "Hit@1": 0.986914586447689,
+        "Hit@8": 0.9997542645342289,
+        "Hit@16": 0.9999795220445191,
+        "MRR": 0.9924907425900606
+      },
+      "accepted_fraction": 1.0,
+      "mean_confidence": 0.3179498612880707,
+      "mean_value_candidates": 16.0,
+      "sparse_fraction_of_reference_bank": 0.006172839506172839,
+      "mean_correct_candidate_weight": 0.8159083127975464,
+      "delta_correct_weight_vs_P0": 0.2287011295557022,
+      "sparse_correct_candidate_coverage": 0.9999795220445191,
+      "reject_precision_recall": "pending frozen manual annotations"
+    },
+    "FL_P5": {
+      "method_spec": {
+        "hypothesis": "H1",
+        "use_spatial": true,
+        "use_temporal": true,
+        "use_rejection": true,
+        "use_sparse_value_mask": true
+      },
+      "verified": {
+        "valid_queries": 48833,
+        "Hit@1": 0.986914586447689,
+        "Hit@8": 0.9997542645342289,
+        "Hit@16": 0.9999795220445191,
+        "MRR": 0.9924907425900606
+      },
+      "accepted_fraction": 0.6498052013762396,
+      "mean_confidence": 0.3179498612880707,
+      "mean_value_candidates": 3.255375936045335,
+      "sparse_fraction_of_reference_bank": 0.0012559320740915644,
+      "mean_correct_candidate_weight": 0.8159083127975464,
+      "delta_correct_weight_vs_P0": 0.2287011295557022,
+      "sparse_correct_candidate_coverage": 0.9849077468105585,
+      "reject_precision_recall": "pending frozen manual annotations"
+    }
+  }
+}
