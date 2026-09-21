@@ -126,7 +126,7 @@ branch   main
 
 | 路径 | 内容 |
 |---|---|
-| `log/` | 版本化中文文档，0.0 → 1.2；命名规范见 `log/worklog_name_format.txt` |
+| `log/` | 版本化中文文档，0.0 → 1.5；命名规范见 `log/worklog_name_format.txt`。**设计基准 = 版本1.5** |
 | `data/demo0_v11/` | 当前 Demo0 主线代码与运行产物（`core.py` / `pipeline.py` / `frontend/`） |
 | `data/demo0_v11/runs/demo0_v11_d0real/` | **已冻结**三点运行，不可重算、不可改写标注 |
 | `data/demo0/` | v1.0 失败方案（ResNet/DIS），仅作历史基线 |
@@ -205,14 +205,53 @@ CamI2V 权重是完整 checkpoint，不是仅含新增模块的 delta
 
 ## 第三部分：项目目标（一段话）
 
-**V²-DiT（Vote-and-Verify DiT）**：给定首帧 + 相机轨迹生成视频，在扩散模型**内部**用运动投票产生候选参考 token 并验证，只允许通过验证的候选进入稀疏 Value 路由，减少建筑变形、纹理漂移、重复结构错配和遮挡处复制错误。
+**V²（Vote-and-Verify，投票—验证）**：给定首帧（+ 可选相机轨迹）生成视频，在扩散模型**内部**用运动投票产生候选参考 token 并验证，只允许通过验证的候选进入**稀疏参考注意力**，减少建筑变形、纹理漂移、重复结构错配和遮挡处复制错误。
 
-当前主线：以 **CamI2V** 为生成主干与主要 baseline。上游最接近工作见 `log/[版本1.16]`（CorrAdapter / CAMEO / Track4Gen / FLATTEN / TokenFlow / CamI2V）。第一版注入形式：
+**命名澄清**：项目曾称 "V²-DiT"，但当前主线主干是 **3D U-Net**（`lvdm.modules.networks.openaimodel3d.UNetModel`），不是 DiT。"V²-DiT" 只保留为方法名，**不是主干描述**。
+
+### 核心设计（[版本1.5] 定稿）
+
+V² 是 **backbone 无关**的轻量模块，核只有：
+
+```python
+V2RefAttn(q, ref_k, ref_v, mask, gate) -> delta
+#   q     [B, L, C]        当前 token
+#   ref_* [B, M, C]        参考 token，M ≪ L（首帧/尾帧）
+#   mask  [B, L, M]        投票掩码：bool 硬允许 或 float logit bias
+#   gate  scalar            扩散步门控；reject 时置 0
+# 输出投影零初始化 ⇒ 接入初期严格等价于原主干
+```
+
+**为什么能 backbone 无关**：只 attend 到少量被选中的参考 token，注意力矩阵是 `[L, M]` 而非 `[L, L]`，用 gather 取索引，`O(L·M)`；**不需要空间/时间分离，也不需要 `TemporalTransformer` 这类可命名单元**。对比：CamI2V 的极线分支是全 `T·H·W × T·H·W` 带掩码注意力（32×32 尺度下 `[1,16384,16384]`），依赖类名匹配才能插入，**无法移植到 VACE**。
+
+**接口铁律**：`V2RefAttn` 中不得出现任何相机/位姿/极线假设。
+
+### 分层结构
 
 ```text
-主干输出 = 原自注意力 + gate(q, step, confidence) × 稀疏参考注意力(q, endpoint Top-K K/V)
-reject 时 gate = 0；优先做 logit bias 或额外 residual branch（便于恢复原模型 + 消融）
+V² 模块本体（不变）       V2RefAttn —— 稀疏参考注意力残差，零初始化
+        ↑ 掩码由下面提供
+候选生成（可插拔）        CandidateProvider
+    EpipolarVoteProvider   有相机位姿 → 极线带降到 1-D + 带内投票   [CamI2V]
+    PureVoteProvider       无相机位姿 → 全参考池一致性投票 + 拒绝    [VACE 可迁移] ★
+    OracleProvider         真值掩码，诊断 headroom 上限
 ```
+
+**极线是可选加速器，不是方法核心。** 投票 = 多个候选对的一致性共识 + 拒绝；**不是**深度估计。
+
+### 四臂实验（第一条实验路线）
+
+```text
+(a) 原版 CamI2V                        ← 零初始化 ⇒ 其余三臂初始点等价于 (a)
+(b) + V²，极线+投票    (c) + V²，纯投票 ★    (d) + V²，oracle
+(c) vs (a) 决定可迁移版本能否成立；(b) vs (c) 决定几何先验值多少
+```
+
+主指标只认**生成质量**：FVD / PSNR / SSIM / LPIPS + RotErr / TransErr / CamMC。
+辅助指标（候选召回等）标 `provisional`，**不作结论**。
+限制：CamI2V 训于 RealEstate10K，零样本跑 MC 是分布外，绝对值不可比论文，四臂相对比较有效。
+
+上游最接近工作见 `log/[版本1.16]`（CorrAdapter / CAMEO / Track4Gen / FLATTEN / TokenFlow / CamI2V）。
 
 ---
 
