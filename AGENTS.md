@@ -216,12 +216,51 @@ nvcc                  ❌ 不存在 —— 无法从源码编译 flash-attn
 ✅ diffusers 0.30.3 / transformers 4.44.2 / tokenizers 0.19.1 / accelerate 0.34.2
 ✅ imageio / imageio_ffmpeg / ftfy 6.3.1
 ✅ easydict 1.13（新装，缺它会导致 import wan 直接失败）
-❌ flash_attn —— 但 wan/modules/attention.py 有干净的 SDPA 回落路径，
-                实测四个模块 import 全部 OK，不构成阻塞
+❌ flash_attn —— **必需，且有坑，见下方更正段**
 ❌ dashscope（仅提示词扩写用）/ gradio（仅 Web UI 用）—— 均不需要
 
 ★ 已验证：wan.modules.model / vace_model / vae / t5 四个模块全部 import 成功
 ```
+
+### ⚠️ 更正（2026-09-21 晚，推翻先前的错误结论）
+
+**先前错误结论**："`attention()` 有 SDPA 回落，flash_attn 不构成阻塞。"
+
+**实测事实**：
+
+```text
+attention.py 里有两个函数：
+    flash_attention()   ← attention.py:112 硬断言 assert FLASH_ATTN_2_AVAILABLE
+    attention()         ← 有 SDPA 回落
+但 model.py 在 7 处**直接调用 flash_attention()**（行 149/179/220/222），
+clip.py 另有 2 处。带回落的 attention() **从未被 model.py 调用**。
+→ 缺 flash_attn 时前向直接崩在 assert（P0B 首次运行即复现）
+```
+
+**预编译轮子路线同样不可行**：
+
+```text
+系统 glibc              2.17
+flash-attn 轮子要求     GLIBC_2.32
+→ flash_attn-2.8.3.post1+cu12torch2.4 装上但 .so 加载失败，已卸载
+   （留着更糟：import flash_attn 会抛 ImportError 而非 ModuleNotFoundError，
+     而 attention.py 只 catch 后者，会直接崩）
+无 nvcc → 也无法从源码编译
+```
+
+**当前方案：运行时补丁（R5 合规，不改上游文件）**
+
+```python
+import wan.modules.attention as _A
+import wan.modules.model as _M
+if not (_A.FLASH_ATTN_2_AVAILABLE or _A.FLASH_ATTN_3_AVAILABLE):
+    _M.flash_attention = _A.attention      # 只在内存中替换
+```
+
+代价两条，报告中必须标注 `sdpa_patched=true`：
+
+1. **慢**：SDPA 处理 32760 token 的全局注意力远慢于 flash-attn
+2. **忽略 padding mask**：SDPA 路径把 `attn_mask` 置 None。单样本全序列时 seq_lens 等于全长，暂无影响
 
 ### 数据状态（2026-09-21 实测，容易踩坑，务必先读）
 
